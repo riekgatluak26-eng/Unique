@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us — Unique Engineering & Consultancy Co. Ltd</title>
+    <meta name="description" content="Discover why leading organizations trust UECC for engineering, construction, and consultancy. Proven results, professional standards, and client‑focused service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== SPLIT HERO ===== */
+        .why-hero {
+            position: relative;
+            background: linear-gradient(160deg, var(--navy) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        .why-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .why-hero-text h1 {
+            font-size: clamp(34px, 4.5vw, 52px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .why-hero-text p {
+            font-size: 17px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+        .why-hero-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+        .why-hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Statistics */
+        .why-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .why-stat-box {
+            background: white;
+            padding: 28px 16px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform var(--transition);
+        }
+        .why-stat-box:hover { transform: translateY(-6px); }
+        .why-stat-box .number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .why-stat-box .desc {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .value-card {
+            background: var(--gray-50);
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .value-card:hover {
+            background: white;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .value-card .icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 22px;
+        }
+        .value-card h4 { color: var(--navy); margin-bottom: 10px; }
+
+        /* Industries grid */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .industry-item {
+            background: var(--gray-50);
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .industry-item i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .industry-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .testimonial-static {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .testimonial-static-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+        }
+        .testimonial-static-card p {
+            font-style: italic;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+        .testimonial-static-card .author {
+            margin-top: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* ===== RESPONSIVE FIXES ===== */
+        @media (max-width: 992px) {
+            .why-hero-grid { grid-template-columns: 1fr; }
+            .why-hero-image img { height: 300px; }
+            .why-stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .industries-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .testimonial-static { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .why-stats-grid { grid-template-columns: 1fr 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .industries-grid { grid-template-columns: 1fr !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="whyus.html" class="active">Why Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-contact">
+                <a href="tel:+211925618075" class="nav-phone"><i class="fas fa-phone"></i><span>+211 925 618 075</span></a>
+                <a href="https://wa.me/211925618075" class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span>+211 925 618 075</span></a>
+                <a href="contact.html" class="btn-quote">Get Quote</a>
+            </div>
+            <button class="mobile-toggle" onclick="openMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="whyus.html" onclick="closeMobileMenu()">Why Us</a></li>
+            <li><a href="projects.html" onclick="closeMobileMenu()">Projects</a></li>
+            <li><a href="clients.html" onclick="closeMobileMenu()">Clients</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="tel:+211925618075"><i class="fas fa-phone"></i> +211 925 618 075</a></li>
+            <li><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i> +211 925 618 075</a></li>
+        </ul>
+        <a href="contact.html" class="btn-quote" style="display:block;text-align:center;margin-top:16px;" onclick="closeMobileMenu()">Get a Free Quote</a>
+    </div>
+
+    <!-- Split Hero -->
+    <section class="why-hero">
+        <div class="why-hero-grid">
+            <div class="why-hero-text">
+                <h1>Why Clients Choose UECC</h1>
+                <p>We combine decades of expertise, rigorous quality standards, and a client‑first approach to deliver projects that exceed expectations.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn-primary"><i class="fas fa-paper-plane"></i> Get a Free Quote</a>
+                    <a href="tel:+211925618075" class="btn-secondary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                </div>
+            </div>
+            <div class="why-hero-image">
+                <img src="assets/unique10.jpeg" alt="UECC team and projects">
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Statistics -->
+    <section class="container" style="margin-top:-60px;">
+        <div class="why-stats-grid reveal">
+            <div class="why-stat-box"><div class="number counter" data-target="15">0</div><div class="desc">Years Experience</div></div>
+            <div class="why-stat-box"><div class="number counter" data-target="50">0</div><div class="desc">Completed Projects</div></div>
+            <div class="why-stat-box"><div class="number counter" data-target="50">0</div><div class="desc">Trusted Clients</div></div>
+            <div class="why-stat-box"><div class="number">5</div><div class="desc">Countries Served</div></div>
+            <div class="why-stat-box"><div class="number">98%</div><div class="desc">Client Satisfaction</div></div>
+            <div class="why-stat-box"><div class="number counter" data-target="20">0</div><div class="desc">Skilled Workforce</div></div>
+        </div>
+    </section>
+
+    <!-- Trusted by Leading Organizations -->
+    <section class="trusted" style="padding: 80px 0;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-building"></i> Trusted By</span>
+                <h2 class="section-title">Why Major Clients Choose UECC</h2>
+            </div>
+            <p class="reveal" style="font-size: 17px; color: var(--gray-600); line-height: 1.8;">
+                Banks, government institutions, NGOs, and private sector clients choose UECC because we consistently deliver projects that meet the highest standards of quality, safety, and efficiency.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="core-values" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-gem"></i> Our Principles</span>
+                <h2 class="section-title">Our Core Values</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal reveal-delay-1"><div class="icon"><i class="fas fa-balance-scale"></i></div><h4>Integrity</h4><p>We conduct every project with honesty, transparency, and accountability.</p></div>
+                <div class="value-card reveal reveal-delay-2"><div class="icon"><i class="fas fa-star"></i></div><h4>Excellence</h4><p>We pursue the highest standards in engineering and construction.</p></div>
+                <div class="value-card reveal reveal-delay-3"><div class="icon"><i class="fas fa-lightbulb"></i></div><h4>Innovation</h4><p>We embrace modern technologies and creative solutions.</p></div>
+                <div class="value-card reveal reveal-delay-4"><div class="icon"><i class="fas fa-hard-hat"></i></div><h4>Safety</h4><p>We prioritize the wellbeing of our people, clients, and communities.</p></div>
+                <div class="value-card reveal reveal-delay-1"><div class="icon"><i class="fas fa-leaf"></i></div><h4>Sustainability</h4><p>We build solutions that support long-term development.</p></div>
+                <div class="value-card reveal reveal-delay-2"><div class="icon"><i class="fas fa-handshake"></i></div><h4>Client Commitment</h4><p>We focus on understanding client needs and exceeding expectations.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Advantages -->
+    <section class="why-points" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-star"></i> The UECC Difference</span>
+                <h2 class="section-title">Key Advantages</h2>
+                <p class="section-subtitle">Every project is completed with attention to detail, professional execution, and a commitment to customer satisfaction.</p>
+            </div>
+            <div class="why-points-grid">
+                <div class="why-point-card reveal reveal-delay-1"><div class="point-icon"><i class="fas fa-users"></i></div><h3>Experienced Professionals</h3><p>Our skilled team brings years of industry experience, delivering high-quality workmanship on every project.</p></div>
+                <div class="why-point-card reveal reveal-delay-2"><div class="point-icon"><i class="fas fa-hammer"></i></div><h3>Quality Craftsmanship</h3><p>We take pride in every detail, using proven techniques and quality materials to ensure lasting results.</p></div>
+                <div class="why-point-card reveal reveal-delay-3"><div class="point-icon"><i class="fas fa-shield-alt"></i></div><h3>Licensed & Insured</h3><p>Your project is protected by a fully licensed and insured team committed to professional standards.</p></div>
+                <div class="why-point-card reveal reveal-delay-4"><div class="point-icon"><i class="fas fa-clock"></i></div><h3>On-Time Delivery</h3><p>We respect your schedule and work efficiently to complete projects on time and within budget.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Delivery Process -->
+    <section class="process" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-tasks"></i> How We Work</span>
+                <h2 class="section-title">How We Ensure Success</h2>
+            </div>
+            <div class="process-steps reveal" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px;">
+                <div class="process-step" style="text-align: center; max-width: 150px;">
+                    <div class="step-number" style="width: 72px; height: 72px; background: white; border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; box-shadow: var(--shadow);">1</div>
+                    <h4 style="font-size: 16px; color: var(--navy);">Consultation & Planning</h4>
+                </div>
+                <div class="process-step" style="text-align: center; max-width: 150px;">
+                    <div class="step-number" style="width: 72px; height: 72px; background: white; border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; box-shadow: var(--shadow);">2</div>
+                    <h4 style="font-size: 16px; color: var(--navy);">Design & Engineering</h4>
+                </div>
+                <div class="process-step" style="text-align: center; max-width: 150px;">
+                    <div class="step-number" style="width: 72px; height: 72px; background: white; border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; box-shadow: var(--shadow);">3</div>
+                    <h4 style="font-size: 16px; color: var(--navy);">Budget & Resource Planning</h4>
+                </div>
+                <div class="process-step" style="text-align: center; max-width: 150px;">
+                    <div class="step-number" style="width: 72px; height: 72px; background: white; border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; box-shadow: var(--shadow);">4</div>
+                    <h4 style="font-size: 16px; color: var(--navy);">Construction & Execution</h4>
+                </div>
+                <div class="process-step" style="text-align: center; max-width: 150px;">
+                    <div class="step-number" style="width: 72px; height: 72px; background: white; border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; box-shadow: var(--shadow);">5</div>
+                    <h4 style="font-size: 16px; color: var(--navy);">Quality Assurance</h4>
+                </div>
+                <div class="process-step" style="text-align: center; max-width: 150px;">
+                    <div class="step-number" style="width: 72px; height: 72px; background: white; border: 3px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; box-shadow: var(--shadow);">6</div>
+                    <h4 style="font-size: 16px; color: var(--navy);">Project Handover</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & Safety Commitment -->
+    <section class="quality-safety" style="padding: 100px 0;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-shield-alt"></i> Our Standards</span>
+                <h2 class="section-title">Quality & Safety Commitment</h2>
+            </div>
+            <p class="reveal" style="font-size: 17px; color: var(--gray-600); line-height: 1.8;">
+                Every project is executed under strict quality control procedures and comprehensive safety standards. Our commitment to excellence ensures reliable, durable, and compliant project outcomes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="testimonials" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-quote-left"></i> Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-static reveal">
+                <div class="testimonial-static-card">
+                    <p>"UECC delivered our project on schedule and exceeded our expectations in quality and professionalism."</p>
+                    <div class="author">— Corporate Client</div>
+                </div>
+                <div class="testimonial-static-card">
+                    <p>"Their engineering expertise and project management capabilities made the entire process smooth and efficient."</p>
+                    <div class="author">— Development Partner</div>
+                </div>
+                <div class="testimonial-static-card">
+                    <p>"UECC remains one of our most trusted construction and consultancy partners."</p>
+                    <div class="author">— Financial Institution Representative</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section class="industries" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-industry"></i> Expertise</span>
+                <h2 class="section-title">Industries We Serve</h2>
+            </div>
+            <div class="industries-grid reveal">
+                <div class="industry-item"><i class="fas fa-university"></i> Banking & Financial</div>
+                <div class="industry-item"><i class="fas fa-building"></i> Commercial Developments</div>
+                <div class="industry-item"><i class="fas fa-hard-hat"></i> Government Infrastructure</div>
+                <div class="industry-item"><i class="fas fa-home"></i> Residential Projects</div>
+                <div class="industry-item"><i class="fas fa-warehouse"></i> Industrial Facilities</div>
+                <div class="industry-item"><i class="fas fa-globe-africa"></i> NGOs & International Orgs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Presence -->
+    <section class="regions" style="padding: 80px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-globe-africa"></i> Coverage</span>
+                <h2 class="section-title">Where We Operate</h2>
+            </div>
+            <div class="regions-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 30px;">
+                <div class="region-card" style="text-align: center; background: var(--gray-50); padding: 20px 12px; border-radius: var(--radius); transition: var(--transition);">
+                    <div style="font-size: 36px; margin-bottom: 8px;">🇸🇸</div>
+                    <h5>South Sudan</h5>
+                </div>
+                <div class="region-card" style="text-align: center; background: var(--gray-50); padding: 20px 12px; border-radius: var(--radius); transition: var(--transition);">
+                    <div style="font-size: 36px; margin-bottom: 8px;">🇪🇹</div>
+                    <h5>Ethiopia</h5>
+                </div>
+                <div class="region-card" style="text-align: center; background: var(--gray-50); padding: 20px 12px; border-radius: var(--radius); transition: var(--transition);">
+                    <div style="font-size: 36px; margin-bottom: 8px;">🇰🇪</div>
+                    <h5>Kenya</h5>
+                </div>
+                <div class="region-card" style="text-align: center; background: var(--gray-50); padding: 20px 12px; border-radius: var(--radius); transition: var(--transition);">
+                    <div style="font-size: 36px; margin-bottom: 8px;">🇺🇬</div>
+                    <h5>Uganda</h5>
+                </div>
+                <div class="region-card" style="text-align: center; background: var(--gray-50); padding: 20px 12px; border-radius: var(--radius); transition: var(--transition);">
+                    <div style="font-size: 36px; margin-bottom: 8px;">🇸🇱</div>
+                    <h5>Sierra Leone</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Standards -->
+    <section class="certifications" style="padding: 100px 0;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-certificate"></i> Standards</span>
+                <h2 class="section-title">Committed to Professional Standards</h2>
+            </div>
+            <ul class="reveal" style="list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                <li style="background: var(--gray-50); padding: 18px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500;">
+                    <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> International Engineering Practices
+                </li>
+                <li style="background: var(--gray-50); padding: 18px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500;">
+                    <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Quality Assurance Procedures
+                </li>
+                <li style="background: var(--gray-50); padding: 18px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500;">
+                    <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Health & Safety Compliance
+                </li>
+                <li style="background: var(--gray-50); padding: 18px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500;">
+                    <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Environmental Responsibility
+                </li>
+                <li style="background: var(--gray-50); padding: 18px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500;">
+                    <i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Professional Project Management
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Partner With a Trusted Engineering Leader?</h2>
+                <p>Whether you're planning a commercial development, infrastructure project, bank fit-out, or engineering consultancy assignment, UECC has the expertise and experience to deliver outstanding results.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white"><i class="fas fa-file-alt"></i> Request a Proposal</a>
+                    <a href="contact.html" class="btn-outline-white"><i class="fas fa-calendar-check"></i> Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img"></a>
+                    <p>UECC is a leading East African engineering, construction, and consultancy firm established in 2011, delivering innovative and sustainable solutions across South Sudan, Ethiopia, Kenya, Uganda, and soon Sierra Leone.</p>
+                    <div class="contact-social" style="margin-top:22px;">
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/211925618075"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="whyus.html">Why Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Key Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html">Bank Fit‑Out</a></li>
+                        <li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Structural Engineering</a></li>
+                        <li><a href="services.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                  <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nimra Talata, opposite Ministry of Mining, Juba</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@uniqueengineerscoltd.com">info@uniqueengineerscoltd.com</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-globe-africa"></i><span>SSD · ETH · KEN · UGA · SLE</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Unique Engineering & Consultancy Co. Ltd (UECC). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float"><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>

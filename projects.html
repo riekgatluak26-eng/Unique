@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects — Unique Engineering & Consultancy Co. Ltd</title>
+    <meta name="description" content="Explore UECC's portfolio of commercial, residential, banking, and infrastructure projects across East Africa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Critical hero preload -->
+    <link rel="preload" as="image" href="assets/hero-projects.jpg" fetchpriority="high">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        html, body { overflow-x: hidden; width: 100%; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-700);
+            line-height: 1.6;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary: #1e3a8a;
+            --primary-dark: #1e2f6d;
+            --primary-light: #3b82f6;
+            --accent: #f59e0b;
+            --navy: #0b1424;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow: 0 4px 14px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.10);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.14);
+            --shadow-2xl: 0 25px 60px rgba(0,0,0,0.20);
+            --shadow-primary: 0 10px 30px rgba(30,58,138,0.25);
+            --img-bg: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: var(--transition);
+            will-change: backdrop-filter;
+        }
+        .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .nav-container {
+            max-width: 1280px; margin: 0 auto; padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between; gap: 24px;
+        }
+        .nav-logo img { height: 52px; width: auto; }
+        .nav-links { display: flex; gap: 6px; }
+        .nav-links li a {
+            padding: 10px 16px; font-weight: 500; font-size: 14px;
+            color: var(--gray-700); border-radius: var(--radius-sm);
+            transition: var(--transition); position: relative;
+        }
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--primary); background: rgba(30,58,138,0.06);
+        }
+        .nav-contact { display: flex; align-items: center; gap: 12px; }
+        .nav-phone, .nav-whatsapp {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 600; color: var(--gray-700);
+            padding: 8px 14px; border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+        .nav-phone:hover { color: var(--primary); background: rgba(30,58,138,0.06); }
+        .nav-whatsapp:hover { color: #25d366; background: rgba(37,211,102,0.08); }
+        .btn-quote {
+            padding: 10px 22px; background: var(--primary); color: white;
+            border-radius: var(--radius-sm); font-weight: 600; font-size: 13px;
+            transition: var(--transition); box-shadow: var(--shadow-primary);
+        }
+        .btn-quote:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .mobile-toggle {
+            display: none; background: none; border: none; font-size: 22px;
+            color: var(--navy); cursor: pointer; padding: 8px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            opacity: 0; visibility: hidden; transition: var(--transition); z-index: 998;
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-menu {
+            position: fixed; top: 0; right: -320px; width: 300px; max-width: 85%;
+            height: 100vh; background: white; z-index: 999;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 24px; overflow-y: auto;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-close {
+            position: absolute; top: 16px; right: 16px;
+            background: var(--gray-100); border: none; width: 40px; height: 40px;
+            border-radius: 50%; font-size: 16px; cursor: pointer; color: var(--gray-700);
+        }
+        .mobile-menu-links { margin-top: 50px; }
+        .mobile-menu-links li { border-bottom: 1px solid var(--gray-100); }
+        .mobile-menu-links li a {
+            display: flex; align-items: center; gap: 12px;
+            padding: 16px 4px; font-weight: 500; color: var(--gray-700);
+        }
+        .mobile-menu-links li a:hover { color: var(--primary); }
+
+        /* ===== HERO ===== */
+        .services-hero {
+            position: relative; min-height: 70vh;
+            background: url('assets/hero-projects.jpg') center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-align: center; overflow: hidden;
+        }
+        .services-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(11,20,36,0.85) 0%, rgba(30,58,138,0.75) 100%);
+        }
+        .services-hero-content {
+            position: relative; z-index: 2; max-width: 900px; padding: 120px 24px 80px;
+            animation: heroFadeIn 1.2s ease-out;
+        }
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 8px 20px; background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px; font-size: 13px; font-weight: 600;
+            letter-spacing: 0.5px; margin-bottom: 24px;
+        }
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800;
+            line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        .services-hero p {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            max-width: 720px; margin: 0 auto; opacity: 0.92; line-height: 1.7;
+        }
+        .hero-stats {
+            display: flex; justify-content: center; gap: 40px;
+            margin-top: 40px; flex-wrap: wrap;
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; font-weight: 800; color: var(--accent);
+            line-height: 1;
+        }
+        .hero-stat .label {
+            font-size: 12px; text-transform: uppercase;
+            letter-spacing: 1.5px; opacity: 0.85; margin-top: 6px;
+        }
+
+        /* ===== SECTION BASICS ===== */
+        section { padding: 100px 0; position: relative; }
+        .section-header { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+        .section-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px; background: rgba(30,58,138,0.08);
+            color: var(--primary); border-radius: 50px;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.8px;
+            text-transform: uppercase; margin-bottom: 18px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
+            color: var(--navy); line-height: 1.15; letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 1.05rem; color: var(--gray-600); line-height: 1.7;
+            max-width: 640px; margin: 0 auto;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section { padding: 80px 0; background: var(--gray-50); }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .stat-card {
+            background: white; padding: 36px 24px; border-radius: var(--radius-lg);
+            text-align: center; box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition); position: relative; overflow: hidden;
+        }
+        .stat-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease;
+        }
+        .stat-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .stat-card:hover::before { transform: scaleX(1); }
+        .stat-icon {
+            width: 64px; height: 64px; margin: 0 auto 18px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px;
+            box-shadow: 0 8px 20px rgba(30,58,138,0.25);
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem; font-weight: 800; color: var(--navy);
+            line-height: 1; margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 14px; color: var(--gray-600); font-weight: 500;
+        }
+
+        /* ===== FEATURED PROJECTS ===== */
+        .featured-projects { background: white; }
+        .projects-grid-featured {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+        }
+        .project-card-featured {
+            background: white; border-radius: var(--radius-xl);
+            overflow: hidden; box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition-slow);
+            display: flex; flex-direction: column;
+        }
+        .project-card-featured:hover {
+            transform: translateY(-10px); box-shadow: var(--shadow-xl);
+            border-color: rgba(30,58,138,0.15);
+        }
+
+        /* ===== UPGRADED SLIDER - GPU ACCELERATED, SMOOTH ===== */
+        .project-slider {
+            position: relative; width: 100%; height: 340px;
+            overflow: hidden;
+            background: var(--img-bg);
+            contain: layout style paint;
+        }
+        .slider-track {
+            display: flex; height: 100%;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .slider-slide {
+            min-width: 100%; height: 100%; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px;
+            background: var(--img-bg);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center center;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: white;
+            transition: transform 0.5s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        .project-card-featured:hover .slider-slide img {
+            transform: scale(1.02);
+        }
+        .slider-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,0.95); border: none;
+            color: var(--primary); font-size: 14px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15); z-index: 5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .slider-arrow:hover {
+            background: var(--primary); color: white;
+            transform: translateY(-50%) scale(1.12);
+            box-shadow: 0 6px 20px rgba(30,58,138,0.35);
+        }
+        .slider-arrow.prev { left: 16px; }
+        .slider-arrow.next { right: 16px; }
+        .slider-counter {
+            position: absolute; bottom: 16px; right: 16px;
+            background: rgba(11,20,36,0.85); backdrop-filter: blur(10px);
+            color: white; padding: 6px 14px; border-radius: 50px;
+            font-size: 12px; font-weight: 600; z-index: 5;
+            letter-spacing: 0.5px;
+        }
+
+        /* Project Info */
+        .project-info-featured { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+        .project-meta-top {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 14px; flex-wrap: wrap; gap: 10px;
+        }
+        .project-category-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 14px; background: rgba(30,58,138,0.08);
+            color: var(--primary); border-radius: 50px;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .project-location {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 12px; color: var(--gray-600); font-weight: 500;
+        }
+        .project-info-featured h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; font-weight: 700; color: var(--navy);
+            line-height: 1.3; margin-bottom: 12px; letter-spacing: -0.01em;
+        }
+        .project-info-featured p {
+            color: var(--gray-600); font-size: 14px; line-height: 1.7;
+            margin-bottom: 20px; flex: 1;
+        }
+        .project-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 18px; border-top: 1px solid var(--gray-100);
+        }
+        .project-specs { display: flex; gap: 18px; }
+        .project-spec {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 12px; color: var(--gray-600); font-weight: 500;
+        }
+        .project-spec i { color: var(--primary); font-size: 13px; }
+        .project-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--primary); font-weight: 600; font-size: 13px;
+            transition: var(--transition);
+        }
+        .project-link:hover { gap: 12px; }
+
+    /* ===== BANK FIT-OUT SECTION ===== */
+.bank-fitout {
+    background: #f8fafc;
+    color: #1f2937;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+.bank-fitout::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(30,58,138,0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(245,158,11,0.04) 0%, transparent 50%);
+    pointer-events: none;
+}
+.bank-fitout .container { position: relative; z-index: 2; }
+.bank-fitout .section-badge {
+    background: rgba(30,58,138,0.08);
+    color: #1e3a8a;
+    border: 1px solid rgba(30,58,138,0.15);
+}
+.bank-fitout .section-title { color: #0b1424; }
+.bank-fitout .section-subtitle { color: #4b5563; }
+
+/* ----- MASONRY GRID (desktop: columns, mobile: safe flex) ----- */
+.masonry-grid {
+    columns: 4;
+    column-gap: 16px;
+}
+.masonry-item {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    /* ensure minimum height even if image hasn't loaded */
+    min-height: 100px;
+}
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    background: #ffffff;
+    display: block;
+    /* hardware acceleration for smooth rendering */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    /* fallback minimum height – guarantees visibility */
+    min-height: 80px;
+}
+.masonry-item::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    pointer-events: none;
+}
+.masonry-item:hover::after { opacity: 1; }
+.masonry-item:hover img { transform: scale(1.05); }
+
+.masonry-item .zoom-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+.masonry-item:hover .zoom-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ----- RESPONSIVE BREAKPOINTS ----- */
+@media (max-width: 1200px) {
+    .masonry-grid { columns: 3; }
+}
+@media (max-width: 992px) {
+    .masonry-grid { columns: 2; }
+}
+/* Mobile – kill columns completely and use flex column (100% visible) */
+@media (max-width: 768px) {
+    .masonry-grid {
+        columns: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .masonry-item {
+        break-inside: unset;
+        -webkit-column-break-inside: unset;
+        margin-bottom: 0;
+        width: 100%;
+        /* bigger minimum height on small screens */
+        min-height: 220px;
+    }
+    .masonry-item img {
+        min-height: 200px;
+        background: #fff;
+    }
+}
+        
+        /* ===== INFRASTRUCTURE SECTION ===== */
+        .infrastructure { background: var(--gray-50); }
+        .infra-showcase {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px;
+            align-items: center; background: white;
+            border-radius: var(--radius-xl); overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .infra-slider {
+            position: relative; height: 500px; overflow: hidden;
+            background: var(--img-bg);
+            contain: layout style paint;
+        }
+        .infra-slider .slider-track {
+            display: flex; height: 100%;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            backface-visibility: hidden;
+        }
+        .infra-slider .slider-slide {
+            min-width: 100%; height: 100%; position: relative;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            background: var(--img-bg);
+        }
+        .infra-slider .slider-slide img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: white;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        .infra-content { padding: 50px 40px; }
+        .infra-content .project-category-tag {
+            background: rgba(245,158,11,0.12); color: var(--accent);
+        }
+        .infra-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; font-weight: 800; color: var(--navy);
+            line-height: 1.2; margin: 16px 0; letter-spacing: -0.01em;
+        }
+        .infra-content p {
+            color: var(--gray-600); font-size: 15px; line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .infra-features {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+            margin-bottom: 28px;
+        }
+        .infra-feature {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 13px; color: var(--gray-700); font-weight: 500;
+        }
+        .infra-feature i {
+            color: var(--primary); font-size: 14px;
+            width: 28px; height: 28px; background: rgba(30,58,138,0.08);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* ===== IMPACT SECTION ===== */
+        .impact-section { background: white; }
+        .impact-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+        }
+        .impact-box {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            padding: 36px 20px; border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm); text-align: center;
+            transition: var(--transition); border: 1px solid var(--gray-100);
+            position: relative; overflow: hidden;
+        }
+        .impact-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0); transition: transform 0.5s ease;
+        }
+        .impact-box:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .impact-box:hover::before { transform: scaleX(1); }
+        .impact-icon {
+            width: 56px; height: 56px; margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 20px;
+            box-shadow: 0 8px 20px rgba(30,58,138,0.25);
+        }
+        .impact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem; font-weight: 800; color: var(--navy);
+            line-height: 1; margin-bottom: 8px;
+        }
+        .impact-label {
+            font-size: 13px; color: var(--gray-600); font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-banner {
+            position: relative; padding: 120px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--primary-dark) 100%);
+            color: white; text-align: center; overflow: hidden;
+        }
+        .cta-banner::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('assets/cta-bg.jpg') center/cover no-repeat;
+            opacity: 0.15;
+        }
+        .cta-banner::after {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(245,158,11,0.15) 0%, transparent 60%);
+        }
+        .cta-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; padding: 0 24px; }
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800;
+            line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        .cta-content p {
+            font-size: 1.1rem; opacity: 0.9; line-height: 1.7;
+            margin-bottom: 36px;
+        }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-white {
+            padding: 16px 34px; background: white; color: var(--primary);
+            border-radius: var(--radius); font-weight: 700; font-size: 14px;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: var(--transition); box-shadow: var(--shadow-lg);
+        }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: var(--shadow-xl); background: var(--accent); color: white; }
+        .btn-outline-white {
+            padding: 16px 34px; background: transparent; color: white;
+            border: 2px solid rgba(255,255,255,0.4); border-radius: var(--radius);
+            font-weight: 700; font-size: 14px;
+            display: inline-flex; align-items: center; gap: 10px;
+            transition: var(--transition);
+        }
+        .btn-outline-white:hover { background: white; color: var(--primary); border-color: white; transform: translateY(-3px); }
+
+       /* ===== FOOTER ===== */
+footer { background: var(--navy); color: rgba(255,255,255,0.75); padding: 80px 0 0; }
+.footer-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 40px;
+    padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 16px; }
+.footer-brand .logo-img {
+    height: 56px;
+    filter: none;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px;
+}
+.footer-col h4 {
+    color: white; font-size: 15px; font-weight: 700;
+    margin-bottom: 20px; letter-spacing: 0.3px;
+}
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { font-size: 14px; transition: var(--transition); }
+.footer-links a:hover { color: var(--accent); padding-left: 4px; }
+.footer-contact-item {
+    display: flex; gap: 12px; margin-bottom: 14px;
+    font-size: 14px; align-items: flex-start;
+}
+.footer-contact-item i { color: var(--accent); margin-top: 4px; min-width: 16px; }
+.footer-contact-item a:hover { color: var(--accent); }
+.contact-social { display: flex; gap: 10px; }
+.social-link {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); color: white;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition);
+}
+.social-link:hover { background: var(--accent); transform: translateY(-3px); }
+.footer-bottom { padding: 24px 0; text-align: center; font-size: 13px; }
+        /* ===== FLOATING ELEMENTS ===== */
+        .whatsapp-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 900;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: #25d366; color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: var(--transition); animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37,211,102,0.4); }
+            50% { box-shadow: 0 10px 30px rgba(37,211,102,0.7), 0 0 0 12px rgba(37,211,102,0); }
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .back-to-top {
+            position: fixed; bottom: 24px; left: 24px; z-index: 900;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--primary); color: white; border: none;
+            font-size: 16px; cursor: pointer;
+            opacity: 0; visibility: hidden; transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+        }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: var(--primary-dark); transform: translateY(-4px); }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+            z-index: 9999; display: none; align-items: center; justify-content: center;
+            padding: 40px; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img {
+            max-width: 90vw; max-height: 90vh;
+            width: auto; height: auto;
+            object-fit: contain;
+            border-radius: var(--radius); box-shadow: var(--shadow-2xl);
+            background: white;
+        }
+        .lightbox-close {
+            position: absolute; top: 24px; right: 24px;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: rgba(255,255,255,0.15); color: white;
+            border: none; font-size: 18px; cursor: pointer;
+            transition: var(--transition);
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.3); transform: rotate(90deg); }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .projects-grid-featured { grid-template-columns: repeat(2, 1fr); }
+            .masonry-grid { columns: 3; }
+            .impact-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 992px) {
+            .nav-links, .nav-contact { display: none; }
+            .mobile-toggle { display: block; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid-featured { grid-template-columns: 1fr; }
+            .infra-showcase { grid-template-columns: 1fr; }
+            .infra-slider { height: 400px; }
+            .infra-content { padding: 36px 28px; }
+            .impact-grid { grid-template-columns: repeat(3, 1fr); }
+            .masonry-grid { columns: 2; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 70px 0; }
+            .services-hero { min-height: 60vh; }
+            .hero-stats { gap: 24px; }
+            .hero-stat .num { font-size: 1.8rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .stat-card { padding: 28px 18px; }
+            .stat-number { font-size: 2rem; }
+            .project-slider { height: 280px; }
+            .infra-slider { height: 320px; }
+            .infra-features { grid-template-columns: 1fr; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .impact-number { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .cta-banner { padding: 80px 0; }
+        }
+        @media (max-width: 540px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-direction: column; gap: 16px; }
+            .project-info-featured { padding: 22px; }
+            .project-info-featured h3 { font-size: 1.25rem; }
+            .project-footer { flex-direction: column; gap: 14px; align-items: flex-start; }
+            .slider-arrow { width: 38px; height: 38px; font-size: 12px; }
+            .project-slider { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img" width="140" height="52"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-contact">
+                <a href="tel:+211925618075" class="nav-phone"><i class="fas fa-phone"></i><span>+211 925 618 075</span></a>
+                <a href="https://wa.me/211925618075" class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span>+211 925 618 075</span></a>
+                <a href="contact.html" class="btn-quote">Get Quote</a>
+            </div>
+            <button class="mobile-toggle" onclick="openMobileMenu()" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="whyus.html" onclick="closeMobileMenu()">Why Us</a></li>
+            <li><a href="projects.html" onclick="closeMobileMenu()">Projects</a></li>
+            <li><a href="clients.html" onclick="closeMobileMenu()">Clients</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="tel:+211925618075"><i class="fas fa-phone"></i> +211 925 618 075</a></li>
+            <li><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i> +211 925 618 075</a></li>
+        </ul>
+        <a href="contact.html" class="btn-quote" style="display:block;text-align:center;margin-top:16px;" onclick="closeMobileMenu()">Get a Free Quote</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-content">
+            <div class="hero-badge"><i class="fas fa-briefcase"></i> Our Portfolio</div>
+            <h1>Building East Africa's Future, One Project at a Time</h1>
+            <p>Over 15 years of excellence delivering premium commercial developments, luxury residences, state-of-the-art banking fit-outs, and critical infrastructure across the region.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="num" data-count="50">0</div>
+                    <div class="label">Projects Delivered</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num" data-count="5">0</div>
+                    <div class="label">Countries Served</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num" data-count="15">0</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num" data-count="98">0</div>
+                    <div class="label">% Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-chart-line"></i> Our Track Record</span>
+                <h2 class="section-title">Numbers That Define Our Excellence</h2>
+                <p class="section-subtitle">A proven history of delivering complex construction and engineering projects across East Africa.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card reveal reveal-delay-1">
+                    <div class="stat-icon"><i class="fas fa-building"></i></div>
+                    <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-2">
+                    <div class="stat-icon"><i class="fas fa-globe-africa"></i></div>
+                    <div class="stat-number"><span class="counter" data-target="5">0</span></div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-3">
+                    <div class="stat-icon"><i class="fas fa-city"></i></div>
+                    <div class="stat-number"><span class="counter" data-target="30">0</span>+</div>
+                    <div class="stat-label">Commercial & Residential</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-4">
+                    <div class="stat-icon"><i class="fas fa-university"></i></div>
+                    <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+                    <div class="stat-label">Banking Fit-Out Specialists</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects (exact original filenames, minus Residential House 02 & 03) -->
+    <section class="featured-projects" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-folder-open"></i> Featured Projects</span>
+                <h2 class="section-title">Our Signature Portfolio</h2>
+                <p class="section-subtitle">Explore our most distinguished projects — each one a testament to engineering excellence, architectural vision, and flawless execution.</p>
+            </div>
+
+            <div class="projects-grid-featured">
+                <!-- Project 1: NBE -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/abel1.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/abel2.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/abel3.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/abel4.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">4</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-university"></i> Banking & Commercial</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Juba, South Sudan</span>
+                        </div>
+                        <h3>National Bank of Egypt (NBE) Headquarters Branch</h3>
+                        <p>Complete construction and specialized banking fit-out for the National Bank of Egypt headquarters branch in Juba. Delivered to international banking standards with high-security vaults, executive offices, and modern customer service halls.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 5 Floor</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Munuki -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/munuki-1.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/munuki-2.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/munuki-3.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/munuki-4.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/munuki-5.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/munuki-6.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Munuki, Juba</span>
+                        </div>
+                        <h3>Three-Storey Residential Building</h3>
+                        <p>Modern three-storey residential development with high-quality finishes and durable construction. Featuring contemporary architectural design, spacious living areas, and premium interior finishes throughout.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 3 Floors</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Custom Market -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/custom-market-1.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/custom-market-2.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/custom-market-3.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/custom-market-4.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/custom-market-5.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">5</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-store"></i> Commercial Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Custom Market, Juba</span>
+                        </div>
+                        <h3>Four-Storey Shopping Complex</h3>
+                        <p>Retail spaces and business outlets designed for growing commercial activity. Strategically located in Custom Market with modern amenities, ample parking, and flexible retail configurations.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 4 Floors</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Konyo Konyo 8-Storey -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/konyo-8st-1.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-8st-2.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-8st-3.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-8st-4.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-8st-5.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-8st-6.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-building"></i> Commercial Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Konyo Konyo, Juba</span>
+                        </div>
+                        <h3>Eight-Storey Commercial Building</h3>
+                        <p>Large-scale commercial and office development supporting business operations. A landmark structure featuring premium office spaces, retail outlets, and modern business facilities in Juba's commercial heart.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 8 Floors</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Nyakuron -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/nyakuron-2.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-2.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-3.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-4.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-5.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-6.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-7.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-8.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-9.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nyakuron-10.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">10</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Nyakuron 1st Class, Juba</span>
+                        </div>
+                        <h3>Three-Storey Residential Building</h3>
+                        <p>Prestigious residential development in one of Juba's premium neighborhoods. Featuring luxury finishes, spacious layouts, and contemporary architectural design that reflects the character of Nyakuron 1st Class.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-star"></i> Premium</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Thong Ping -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/thong-ping-1.jpeg" alt="Thong Ping Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/thong-ping-2.jpeg" alt="Thong Ping Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/thong-ping-3.jpeg" alt="Thong Ping Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/thong-ping-4.jpeg" alt="Thong Ping Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/thong-ping-5.jpeg" alt="Thong Ping Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/thong-ping-6.jpeg" alt="Thong Ping Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Thong Ping, Juba</span>
+                        </div>
+                        <h3>Three-Storey Residential Building</h3>
+                        <p>Modern residence with durable finishes and contemporary architectural design. Combining functional living spaces with aesthetic appeal, this project showcases our commitment to quality residential construction.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 3 Floors</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Hai Cinema -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/hai-cinema-1.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-2.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-3.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-4.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-5.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-6.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-7.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-8.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-9.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/hai-cinema-10.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">10</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-building"></i> Residential Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Hai Cinema, Juba</span>
+                        </div>
+                        <h3>Six-Storey Apartment Building</h3>
+                        <p>Contemporary six-storey apartment complex designed for urban living. Featuring modern amenities, energy-efficient design, and thoughtfully planned living spaces that redefine urban residential standards in Juba.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 6 Floors</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Nairobi -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/nairobi-1.jpeg" alt="Nairobi Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nairobi-2.jpeg" alt="Nairobi Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nairobi-3.jpeg" alt="Nairobi Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nairobi-4.jpeg" alt="Nairobi Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nairobi-5.jpeg" alt="Nairobi Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/nairobi-6.jpeg" alt="Nairobi Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+                        </div>
+                        <h3>Three-Storey Residential Building</h3>
+                        <p>Durable and sustainable residential project built to modern standards. Demonstrating UECC's regional expertise with a premium residential development in Kenya's capital city.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-globe-africa"></i> Kenya</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Konyo Konyo Mixed-Use -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/konyo-mixed-1.jpeg" alt="Mixed-Use Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-mixed-2.jpeg" alt="Mixed-Use Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-mixed-3.jpeg" alt="Mixed-Use Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-mixed-4.jpeg" alt="Mixed-Use Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/konyo-mixed-5.jpeg" alt="Mixed-Use Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">5</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-city"></i> Commercial & Residential</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Konyo Konyo, Juba</span>
+                        </div>
+                        <h3>Five-Storey Mixed-Use Complex</h3>
+                        <p>Integrated development combining retail, commercial, and residential spaces. A versatile urban development designed to meet the diverse needs of modern city living and commerce.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-layer-group"></i> 5 Floors</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Mia Sea Commercial Building -->
+<div class="project-card-featured reveal">
+    <div class="project-slider" data-autoplay="4000">
+        <div class="slider-track">
+            <div class="slider-slide"><img src="assets/miaseba1.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba2.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba3.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba4.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba5.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba6.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba7.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba8.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/miaseba9.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+        </div>
+        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-counter"><span class="current">1</span> / <span class="total">9</span></div>
+    </div>
+    <div class="project-info-featured">
+        <div class="project-meta-top">
+            <span class="project-category-tag"><i class="fas fa-city"></i> Commercial</span>
+            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Mia Sea, Juba, South Sudan</span>
+        </div>
+        <h3>Five-Storey Commercial Building</h3>
+        <p>A modern five-storey commercial development offering premium retail and office spaces in the heart of Mia Sea, Juba.</p>
+        <div class="project-footer">
+            <div class="project-specs">
+                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                <div class="project-spec"><i class="fas fa-layer-group"></i> 5 Floors</div>
+            </div>
+            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+
+                <!-- Project: Thong Ping Guest House -->
+<div class="project-card-featured reveal">
+    <div class="project-slider" data-autoplay="4000">
+        <div class="slider-track">
+            <div class="slider-slide"><img src="assets/thongping1.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping2.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping3.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping4.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping5.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping6.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping7.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/thongping8.jpeg" alt="Guest House" loading="lazy" decoding="async" width="800" height="600"></div>
+        </div>
+        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-counter"><span class="current">1</span> / <span class="total">9</span></div>
+    </div>
+    <div class="project-info-featured">
+        <div class="project-meta-top">
+            <span class="project-category-tag"><i class="fas fa-hotel"></i> Hospitality</span>
+            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Thong Ping, Juba, South Sudan</span>
+        </div>
+        <h3>Two-Storey Guest House</h3>
+        <p>A comfortable two-storey guest house offering welcoming accommodation in the serene Thong Ping area of Juba. Designed for both short and extended stays with modern amenities.</p>
+        <div class="project-footer">
+            <div class="project-specs">
+                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                <div class="project-spec"><i class="fas fa-layer-group"></i> 2 Floors</div>
+            </div>
+            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+
+                <!-- Project: Airport Road Commercial Building -->
+<div class="project-card-featured reveal">
+    <div class="project-slider" data-autoplay="4000">
+        <div class="slider-track">
+            <div class="slider-slide"><img src="assets/airport1.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/airport2.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/airport3.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/airport4.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/airport5.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/airport6.jpeg" alt="Commercial Building" loading="lazy" decoding="async" width="800" height="600"></div>
+        </div>
+        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+    </div>
+    <div class="project-info-featured">
+        <div class="project-meta-top">
+            <span class="project-category-tag"><i class="fas fa-city"></i> Commercial</span>
+            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Airport Road, Juba, South Sudan</span>
+        </div>
+        <h3>Five-Storey Commercial Building</h3>
+        <p>A modern five-storey commercial development strategically located on Airport Road, offering prime retail and office spaces in one of Juba's busiest corridors.</p>
+        <div class="project-footer">
+            <div class="project-specs">
+                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                <div class="project-spec"><i class="fas fa-layer-group"></i> 5 Floors</div>
+            </div>
+            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+
+                <!-- Project 10: Addis Warehouse -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/addis-warehouse-1.jpeg" alt="Warehouse Addis" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-warehouse-2.jpeg" alt="Warehouse Addis" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-warehouse-3.jpeg" alt="Warehouse Addis" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-warehouse-4.jpeg" alt="Warehouse Addis" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-warehouse-5.jpeg" alt="Warehouse Addis" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-warehouse-6.jpeg" alt="Warehouse Addis" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-warehouse"></i> Industrial Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</span>
+                        </div>
+                        <h3>Warehouse Development</h3>
+                        <p>Large-scale warehouse facility supporting industrial and logistics operations. Built with robust structural systems, optimized layouts, and modern industrial standards for efficient operations.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-globe-africa"></i> Ethiopia</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11: Addis House 01 -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/addis-house1.jpeg" alt="Residential House 01" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-house2.jpeg" alt="Residential House 01" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-house3.jpeg" alt="Residential House 01" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-house4.jpeg" alt="Residential House 01" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-house5.jpeg" alt="Residential House 01" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">5</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</span>
+                        </div>
+                        <h3>Residential House Development 01</h3>
+                        <p>Modern family residence featuring quality finishes and sustainable construction. Designed with contemporary aesthetics and practical functionality for comfortable family living.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-leaf"></i> Sustainable</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Addis Ababa Real Estate -->
+<div class="project-card-featured reveal">
+    <div class="project-slider" data-autoplay="4000">
+        <div class="slider-track">
+            <div class="slider-slide"><img src="assets/estate1.jpeg" alt="Real Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/estate2.jpeg" alt="Real Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+            <div class="slider-slide"><img src="assets/estate3.jpeg" alt="Real Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+        </div>
+        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-counter"><span class="current">1</span> / <span class="total">3</span></div>
+    </div>
+    <div class="project-info-featured">
+        <div class="project-meta-top">
+            <span class="project-category-tag"><i class="fas fa-building"></i> Real Estate</span>
+            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</span>
+        </div>
+        <h3>Premium Real Estate Development</h3>
+        <p>A contemporary real estate project offering modern residential and commercial units in the vibrant capital of Ethiopia, Addis Ababa.</p>
+        <div class="project-footer">
+            <div class="project-specs">
+                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                <div class="project-spec"><i class="fas fa-building"></i> Multiple Units</div>
+            </div>
+            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+
+                <!-- Project 14: Addis Estate -->
+                <div class="project-card-featured reveal">
+                    <div class="project-slider" data-autoplay="4000">
+                        <div class="slider-track">
+                            <div class="slider-slide"><img src="assets/addis-estate-1.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-estate-2.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-estate-3.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-estate-4.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-estate-5.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-estate-6.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                            <div class="slider-slide"><img src="assets/addis-estate-7.jpeg" alt="Estate Development" loading="lazy" decoding="async" width="800" height="600"></div>
+                        </div>
+                        <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-counter"><span class="current">1</span> / <span class="total">7</span></div>
+                    </div>
+                    <div class="project-info-featured">
+                        <div class="project-meta-top">
+                            <span class="project-category-tag"><i class="fas fa-city"></i> Real Estate Development</span>
+                            <span class="project-location"><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</span>
+                        </div>
+                        <h3>Residential Estate Development</h3>
+                        <p>Comprehensive real estate housing development project. A master-planned community featuring modern homes, landscaped common areas, and integrated amenities for comfortable community living.</p>
+                        <div class="project-footer">
+                            <div class="project-specs">
+                                <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                                <div class="project-spec"><i class="fas fa-home"></i> Estate</div>
+                            </div>
+                            <a href="contact.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bank Fit-Out Portfolio (exact original filenames) -->
+<section class="bank-fitout">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><i class="fas fa-university"></i> Specialized Expertise</span>
+            <h2 class="section-title">Bank Fit-Out Portfolio</h2>
+            <p class="section-subtitle">Specialized banking interior fit-outs, customer halls, executive offices, ATM areas, teller stations, vault facilities, and banking operational spaces.</p>
+        </div>
+        <div class="masonry-grid reveal">
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-1.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-2.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-3.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-4.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-5.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-6.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-7.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-8.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-9.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-10.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-11.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-12.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-13.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-14.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-15.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-16.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-17.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-18.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-19.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-20.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-21.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-22.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-23.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-24.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+            <div class="masonry-item" onclick="openLightbox(this)"><img src="assets/bank-fitout-25.jpeg" alt="Bank Fit-Out" loading="lazy" decoding="async" width="600" height="400"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Infrastructure / Road Construction (exact original filenames) -->
+    <section class="infrastructure">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-road"></i> Infrastructure Development</span>
+                <h2 class="section-title">Road Construction Projects</h2>
+                <p class="section-subtitle">Building the arteries of economic growth through quality road infrastructure development.</p>
+            </div>
+            <div class="infra-showcase reveal">
+                <div class="project-slider infra-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/road-construction-1.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/road-construction-2.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/road-construction-3.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/road-construction-4.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/road-construction-5.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/road-construction-6.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/road-construction-7.jpeg" alt="Road Construction" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">7</span></div>
+                </div>
+                <div class="infra-content">
+                    <span class="project-category-tag"><i class="fas fa-road"></i> Infrastructure Development</span>
+                    <h3>Road Construction Project</h3>
+                    <p>Road infrastructure development supporting transportation and economic growth. Our road construction projects deliver durable, well-engineered roadways that connect communities and facilitate commerce across Ethiopia.</p>
+                    <div class="infra-features">
+                        <div class="infra-feature"><i class="fas fa-map-marker-alt"></i> Ethiopia</div>
+                        <div class="infra-feature"><i class="fas fa-check-circle"></i> Completed</div>
+                        <div class="infra-feature"><i class="fas fa-hard-hat"></i> Heavy Civil</div>
+                        <div class="infra-feature"><i class="fas fa-shield-alt"></i> Safety Certified</div>
+                    </div>
+                    <a href="contact.html" class="btn-white" style="background:var(--primary);color:white;">
+                        <i class="fas fa-paper-plane"></i> Discuss Infrastructure Project
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-chart-bar"></i> Our Impact</span>
+                <h2 class="section-title">Building a Legacy of Excellence</h2>
+                <p class="section-subtitle">Every project is a milestone in our journey of transforming East Africa's built environment.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-box reveal reveal-delay-1"><div class="impact-icon"><i class="fas fa-building"></i></div><div class="impact-number"><span class="counter" data-target="50">0</span>+</div><div class="impact-label">Projects Completed</div></div>
+                <div class="impact-box reveal reveal-delay-2"><div class="impact-icon"><i class="fas fa-store"></i></div><div class="impact-number"><span class="counter" data-target="20">0</span>+</div><div class="impact-label">Commercial Developments</div></div>
+                <div class="impact-box reveal reveal-delay-3"><div class="impact-icon"><i class="fas fa-home"></i></div><div class="impact-number"><span class="counter" data-target="30">0</span>+</div><div class="impact-label">Residential Buildings</div></div>
+                <div class="impact-box reveal reveal-delay-4"><div class="impact-icon"><i class="fas fa-university"></i></div><div class="impact-number"><span class="counter" data-target="15">0</span>+</div><div class="impact-label">Banking Fit-Outs</div></div>
+                <div class="impact-box reveal reveal-delay-4"><div class="impact-icon"><i class="fas fa-road"></i></div><div class="impact-number"><span class="counter" data-target="10">0</span>+</div><div class="impact-label">Infrastructure Projects</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-banner">
+        <div class="cta-content reveal">
+            <span class="section-badge" style="background:rgba(245,158,11,0.15);color:var(--accent);border:1px solid rgba(245,158,11,0.3);">
+                <i class="fas fa-handshake"></i> Let's Collaborate
+            </span>
+            <h2>Let's Build the Future Together</h2>
+            <p>Whether you're planning a commercial development, residential project, banking fit-out, or infrastructure initiative — UECC has the expertise, experience, and dedication to bring your vision to life across East Africa.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-white"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="contact.html" class="btn-outline-white"><i class="fas fa-calendar-check"></i> Request a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img" width="140" height="52"></a>
+                    <p>UECC is a leading East African engineering, construction, and consultancy firm established in 2011, delivering excellence across commercial, residential, banking, and infrastructure sectors.</p>
+                    <div class="contact-social" style="margin-top:22px;">
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/211925618075" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li>
+                        <li><a href="whyus.html">Why Us</a></li><li><a href="projects.html">Projects</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Key Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Architectural Design</a></li><li><a href="services.html">Bank Fit-Out</a></li><li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Structural Engineering</a></li><li><a href="services.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nimra Talata, opposite Ministry of Mining, Juba</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@uniqueengineerscoltd.com">info@uniqueengineerscoltd.com</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-globe-africa"></i><span>SSD · ETH · KEN · UGA · SLE</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Unique Engineering & Consultancy Co. Ltd (UECC). All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+    <!-- Floating Elements -->
+    <div class="whatsapp-float"><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox(event)"><i class="fas fa-times"></i></button>
+        <img src="" alt="Project Image" id="lightboxImg" decoding="async">
+    </div>
+
+    <script>
+        /* ===== NAVBAR SCROLL EFFECT ===== */
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+        }, { passive: true });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ===== MOBILE MENU ===== */
+        function openMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('active');
+            document.getElementById('mobileOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.getElementById('mobileOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        /* ===== UPGRADED PROJECT SLIDER ===== */
+        class ProjectSlider {
+            constructor(sliderEl) {
+                this.slider = sliderEl;
+                this.track = sliderEl.querySelector('.slider-track');
+                this.slides = sliderEl.querySelectorAll('.slider-slide');
+                this.prevBtn = sliderEl.querySelector('.prev');
+                this.nextBtn = sliderEl.querySelector('.next');
+                this.counterCurrent = sliderEl.querySelector('.current');
+                this.currentIndex = 0;
+                this.totalSlides = this.slides.length;
+                this.autoplayInterval = parseInt(sliderEl.dataset.autoplay) || 4000;
+                this.autoplayTimer = null;
+                this.isPaused = false;
+                this.isTransitioning = false;
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                this.touchStartTime = 0;
+                this.init();
+            }
+
+            init() {
+                this.prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); this.prev(); });
+                this.nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); this.next(); });
+                this.slider.addEventListener('mouseenter', () => this.pause());
+                this.slider.addEventListener('mouseleave', () => this.resume());
+                this.slider.addEventListener('touchstart', (e) => {
+                    this.touchStartX = e.touches[0].clientX;
+                    this.touchStartTime = Date.now();
+                    this.pause();
+                }, { passive: true });
+                this.slider.addEventListener('touchmove', (e) => { this.touchEndX = e.touches[0].clientX; }, { passive: true });
+                this.slider.addEventListener('touchend', () => {
+                    const diff = this.touchStartX - this.touchEndX;
+                    const timeDiff = Date.now() - this.touchStartTime;
+                    const velocity = Math.abs(diff) / timeDiff;
+                    if (Math.abs(diff) > 50 || velocity > 0.3) {
+                        if (diff > 0) this.next(); else this.prev();
+                    }
+                    this.resume();
+                });
+                this.track.addEventListener('transitionend', () => { this.isTransitioning = false; });
+                this.preloadAdjacentImages();
+                this.startAutoplay();
+            }
+
+            preloadAdjacentImages() {
+                const nextIndex = (this.currentIndex + 1) % this.totalSlides;
+                const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                [nextIndex, prevIndex].forEach(idx => {
+                    const img = this.slides[idx]?.querySelector('img');
+                    if (img && !img.complete) {
+                        const preload = new Image();
+                        preload.src = img.src;
+                    }
+                });
+            }
+
+            updateSlide() {
+                if (this.isTransitioning) return;
+                this.isTransitioning = true;
+                this.track.style.transform = `translate3d(-${this.currentIndex * 100}%, 0, 0)`;
+                this.counterCurrent.textContent = this.currentIndex + 1;
+                setTimeout(() => this.preloadAdjacentImages(), 400);
+            }
+
+            next() { this.currentIndex = (this.currentIndex + 1) % this.totalSlides; this.updateSlide(); }
+            prev() { this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides; this.updateSlide(); }
+            startAutoplay() { this.autoplayTimer = setInterval(() => { if (!this.isPaused && !this.isTransitioning) this.next(); }, this.autoplayInterval); }
+            pause() { this.isPaused = true; }
+            resume() { this.isPaused = false; }
+        }
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.project-slider').forEach(slider => new ProjectSlider(slider));
+        });
+
+        /* ===== SCROLL REVEAL ===== */
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); revealObserver.unobserve(entry.target); } });
+        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        /* ===== ANIMATED COUNTERS ===== */
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.target);
+                    const duration = 2000;
+                    const startTime = performance.now();
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeProgress = 1 - Math.pow(1 - progress, 3);
+                        counter.textContent = Math.floor(easeProgress * target);
+                        if (progress < 1) requestAnimationFrame(updateCounter);
+                        else counter.textContent = target;
+                    }
+                    requestAnimationFrame(updateCounter);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        const heroCounters = document.querySelectorAll('.hero-stat .num');
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    const duration = 2000;
+                    const startTime = performance.now();
+                    function update(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeProgress = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.floor(easeProgress * target);
+                        if (progress < 1) requestAnimationFrame(update);
+                        else el.textContent = target;
+                    }
+                    requestAnimationFrame(update);
+                    heroObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        heroCounters.forEach(el => heroObserver.observe(el));
+
+        /* ===== LIGHTBOX ===== */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox(event) {
+            if (event.target === lightbox || event.target.closest('.lightbox-close')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        /* ===== LAZY LOADING FALLBACK ===== */
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => { if (img.dataset.src) img.src = img.dataset.src; });
+        } else {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) img.src = img.dataset.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    </script>
+</body>
+</html>

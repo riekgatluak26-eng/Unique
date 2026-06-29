@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients — Unique Engineering & Consultancy Co. Ltd</title>
+    <meta name="description" content="Trusted by leading banks, multinationals, and construction firms across East Africa. Discover the clients who choose UECC for engineering excellence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== UPDATED CLIENTS HERO (split with image on the right) ===== */
+        .clients-hero {
+            position: relative;
+            background: linear-gradient(160deg, var(--navy) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        .clients-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .clients-hero-text {
+            position: relative;
+            z-index: 2;
+        }
+        .clients-hero-text h1 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .clients-hero-text p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 28px;
+            max-width: 500px;
+        }
+        .clients-hero-image {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+        .clients-hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Rest of the page styles unchanged */
+        .client-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 40px; }
+        .client-stat-box { background: white; padding: 28px 16px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); text-align: center; transition: transform var(--transition); }
+        .client-stat-box:hover { transform: translateY(-6px); }
+        .client-stat-box .number { font-size: 36px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; line-height: 1; }
+        .client-stat-box .desc { font-size: 13px; color: var(--gray-600); margin-top: 8px; font-weight: 500; }
+
+        .why-choose-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; list-style: none; max-width: 900px; margin: 0 auto; }
+        .why-choose-list li { background: white; padding: 14px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500; box-shadow: var(--shadow-xs); }
+
+        .featured-client-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .featured-client-project-card { background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform var(--transition); }
+        .featured-client-project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .featured-client-project-card img { width: 100%; height: 200px; object-fit: cover; }
+        .featured-client-project-card .info { padding: 18px; }
+        .featured-client-project-card h5 { font-size: 16px; color: var(--navy); }
+        .featured-client-project-card p { font-size: 13px; color: var(--gray-600); margin-top: 6px; }
+
+        .testimonial-static-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .testimonial-static-card { background: white; padding: 32px 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100); text-align: center; }
+        .testimonial-static-card p { font-style: italic; color: var(--gray-700); line-height: 1.7; }
+        .testimonial-static-card .author { margin-top: 16px; font-weight: 600; color: var(--primary); }
+
+        .regions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 30px; }
+        .region-card { text-align: center; background: var(--gray-50); padding: 20px 12px; border-radius: var(--radius); transition: var(--transition); }
+        .region-card:hover { background: var(--primary); color: white; }
+        .region-card .flag { font-size: 36px; margin-bottom: 8px; }
+        .region-card h5 { font-size: 15px; }
+
+        @media (max-width: 992px) {
+            .clients-hero-grid { grid-template-columns: 1fr; }
+            .clients-hero-image img { height: 300px; }
+            .client-stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .why-choose-list { grid-template-columns: 1fr; }
+            .featured-client-projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-static-cards { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .client-stats-grid { grid-template-columns: 1fr 1fr; }
+            .featured-client-projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="clients.html" class="active">Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-contact">
+                <a href="tel:+211925618075" class="nav-phone"><i class="fas fa-phone"></i><span>+211 925 618 075</span></a>
+                <a href="https://wa.me/211925618075" class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span>+211 925 618 075</span></a>
+                <a href="contact.html" class="btn-quote">Get Quote</a>
+            </div>
+            <button class="mobile-toggle" onclick="openMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="whyus.html" onclick="closeMobileMenu()">Why Us</a></li>
+            <li><a href="projects.html" onclick="closeMobileMenu()">Projects</a></li>
+            <li><a href="clients.html" onclick="closeMobileMenu()">Clients</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="tel:+211925618075"><i class="fas fa-phone"></i> +211 925 618 075</a></li>
+            <li><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i> +211 925 618 075</a></li>
+        </ul>
+        <a href="contact.html" class="btn-quote" style="display:block;text-align:center;margin-top:16px;" onclick="closeMobileMenu()">Get a Free Quote</a>
+    </div>
+
+    <!-- NEW Split Hero Section -->
+    <section class="clients-hero">
+        <div class="clients-hero-grid">
+            <div class="clients-hero-text">
+                <h1>Our Valued Clients</h1>
+                <p>We are proud to partner with leading organisations across East Africa, delivering engineering solutions they trust.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn-primary"><i class="fas fa-handshake"></i> Become a Client</a>
+                    <a href="tel:+211925618075" class="btn-secondary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                </div>
+            </div>
+            <div class="clients-hero-image">
+                <!-- Replace with a real client collaboration image if available -->
+                <img src="assets/addis-house3.jpeg" alt="UECC client meeting">
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Success Statistics -->
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-chart-line"></i> Our Impact</span>
+                <h2 class="section-title">Client Success in Numbers</h2>
+            </div>
+            <div class="client-stats-grid reveal">
+                <div class="client-stat-box">
+                    <div class="number counter" data-target="50">0</div>
+                    <div class="desc">Trusted Clients</div>
+                </div>
+                <div class="client-stat-box">
+                    <div class="number">95%</div>
+                    <div class="desc">Repeat Business Rate</div>
+                </div>
+                <div class="client-stat-box">
+                    <div class="number counter" data-target="50">0</div>
+                    <div class="desc">Completed Projects</div>
+                </div>
+                <div class="client-stat-box">
+                    <div class="number">5</div>
+                    <div class="desc">Countries Served</div>
+                </div>
+                <div class="client-stat-box">
+                    <div class="number">15+</div>
+                    <div class="desc">Years in Business</div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Client Logo Wall -->
+<section class="clients-grid-page" style="padding: 100px 0; background: var(--gray-50);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><i class="fas fa-building"></i> Our Network</span>
+            <h2 class="section-title">Our Client Network</h2>
+            <p class="section-subtitle">A selection of leading organizations that trust UECC.</p>
+        </div>
+        <div class="clients-grid" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="client-card reveal reveal-delay-1"><div class="client-logo"><i class="fas fa-university"></i></div><h4>Eco Bank</h4></div>
+            <div class="client-card reveal reveal-delay-2"><div class="client-logo"><i class="fas fa-hand-holding-usd"></i></div><h4>Cooperative Bank</h4></div>
+            <div class="client-card reveal reveal-delay-3"><div class="client-logo"><i class="fas fa-chart-line"></i></div><h4>Equity Bank</h4></div>
+            <div class="client-card reveal reveal-delay-4"><div class="client-logo"><i class="fas fa-landmark"></i></div><h4>KCB Bank</h4></div>
+            <div class="client-card reveal reveal-delay-1"><div class="client-logo"><i class="fas fa-oil-can"></i></div><h4>Daar Petroleum</h4></div>
+            <div class="client-card reveal reveal-delay-2"><div class="client-logo"><i class="fas fa-tv"></i></div><h4>LG</h4></div>
+            <div class="client-card reveal reveal-delay-3"><div class="client-logo"><i class="fas fa-tractor"></i></div><h4>DPOC</h4></div>
+            <div class="client-card reveal reveal-delay-4"><div class="client-logo"><i class="fas fa-shield-alt"></i></div><h4>UAP</h4></div>
+            <div class="client-card reveal reveal-delay-1"><div class="client-logo"><i class="fas fa-chart-bar"></i></div><h4>ICAP</h4></div>
+            <div class="client-card reveal reveal-delay-2"><div class="client-logo"><i class="fas fa-hard-hat"></i></div><h4>AECOM</h4></div>
+            <div class="client-card reveal reveal-delay-3"><div class="client-logo"><i class="fas fa-child"></i></div><h4>Save the Children</h4></div>
+            <div class="client-card reveal reveal-delay-4"><div class="client-logo"><i class="fas fa-globe-americas"></i></div><h4>UNDP</h4></div>
+            <div class="client-card reveal reveal-delay-1"><div class="client-logo"><i class="fas fa-city"></i></div><h4>Midroc Investment Group</h4></div>
+            <div class="client-card reveal reveal-delay-2"><div class="client-logo"><i class="fas fa-road"></i></div><h4>Addis Ababa City Road Authority</h4></div>
+            <div class="client-card reveal reveal-delay-3"><div class="client-logo"><i class="fas fa-plane"></i></div><h4>Ethiopia Airline</h4></div>
+            <div class="client-card reveal reveal-delay-4"><div class="client-logo"><i class="fas fa-building-columns"></i></div><h4>Commercial Bank of Ethiopia</h4></div>
+            <div class="client-card reveal reveal-delay-1"><div class="client-logo"><i class="fas fa-user-tie"></i></div><h4>Office of the Mayor Addis Ababa</h4></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Industries We Serve -->
+    <section class="industries" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-industry"></i> Diverse Sectors</span>
+                <h2 class="section-title">Industries We Serve</h2>
+            </div>
+            <div class="industries-grid reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-university" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Banking & Financial Services
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-hard-hat" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Construction & Infrastructure
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-building" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Commercial Real Estate
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-oil-can" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Oil & Gas
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-warehouse" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Industrial Facilities
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-globe-africa" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> NGOs & Development Orgs
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-university" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Government Institutions
+                </div>
+                <div class="industry-item" style="background: var(--gray-50); padding: 24px; border-radius: var(--radius); text-align: center; font-weight: 600; transition: var(--transition);">
+                    <i class="fas fa-truck" style="font-size: 24px; margin-bottom: 10px; display: block;"></i> Manufacturing & Logistics
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Clients Choose UECC -->
+    <section style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-thumbs-up"></i> Reasons</span>
+                <h2 class="section-title">Why Clients Choose UECC</h2>
+            </div>
+            <ul class="why-choose-list reveal">
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> 15+ Years of Experience</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> 50+ Completed Projects</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> Proven Regional Expertise</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> Strong Quality Control</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> On-Time Project Delivery</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> Transparent Communication</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> Safety-Focused Operations</li>
+                <li><i class="fas fa-check-circle" style="color:var(--primary); margin-right:8px;"></i> Long-Term Client Relationships</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-quote-left"></i> Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-static-cards reveal">
+                <div class="testimonial-static-card">
+                    <p>"UECC consistently delivered exceptional quality and professionalism throughout our project."</p>
+                    <div class="author">— Banking Sector Client</div>
+                </div>
+                <div class="testimonial-static-card">
+                    <p>"Their project management and attention to detail exceeded our expectations."</p>
+                    <div class="author">— Commercial Development Client</div>
+                </div>
+                <div class="testimonial-static-card">
+                    <p>"We value our long-standing relationship with UECC and trust their expertise."</p>
+                    <div class="author">— Corporate Partner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Client Projects (matching projects.html design) -->
+<section class="featured-projects" style="padding: 100px 0; background: var(--gray-50);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><i class="fas fa-briefcase"></i> Collaborations</span>
+            <h2 class="section-title">Featured Client Projects</h2>
+            <p class="section-subtitle">A glimpse of our successful partnerships with leading organisations.</p>
+        </div>
+
+        <div class="projects-grid-featured">
+            <!-- Project 1: NBE -->
+            <div class="project-card-featured reveal">
+                <div class="project-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/abel1.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/abel2.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/abel3.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/abel4.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">4</span></div>
+                </div>
+                <div class="project-info-featured">
+                    <div class="project-meta-top">
+                        <span class="project-category-tag"><i class="fas fa-university"></i> Banking & Commercial</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Juba, South Sudan</span>
+                    </div>
+                    <h3>National Bank of Egypt (NBE) Headquarters Branch</h3>
+                    <p>Complete construction and specialised banking fit-out delivered to international standards.</p>
+                    <div class="project-footer">
+                        <div class="project-specs">
+                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                            <div class="project-spec"><i class="fas fa-layer-group"></i> 5 Floor</div>
+                        </div>
+                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Munuki -->
+            <div class="project-card-featured reveal">
+                <div class="project-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/munuki-1.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/munuki-2.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/munuki-3.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/munuki-4.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/munuki-5.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/munuki-6.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                </div>
+                <div class="project-info-featured">
+                    <div class="project-meta-top">
+                        <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Munuki, Juba</span>
+                    </div>
+                    <h3>Three-Storey Residential Building</h3>
+                    <p>Modern three-storey residential development with high-quality finishes and durable construction.</p>
+                    <div class="project-footer">
+                        <div class="project-specs">
+                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                            <div class="project-spec"><i class="fas fa-layer-group"></i> 3 Floors</div>
+                        </div>
+                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Custom Market -->
+            <div class="project-card-featured reveal">
+                <div class="project-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/custom-market-1.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/custom-market-2.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/custom-market-3.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/custom-market-4.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/custom-market-5.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">5</span></div>
+                </div>
+                <div class="project-info-featured">
+                    <div class="project-meta-top">
+                        <span class="project-category-tag"><i class="fas fa-store"></i> Commercial Development</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Custom Market, Juba</span>
+                    </div>
+                    <h3>Four-Storey Shopping Complex</h3>
+                    <p>Retail spaces and business outlets designed for growing commercial activity with modern amenities.</p>
+                    <div class="project-footer">
+                        <div class="project-specs">
+                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                            <div class="project-spec"><i class="fas fa-layer-group"></i> 4 Floors</div>
+                        </div>
+                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Konyo Konyo 8-Storey -->
+            <div class="project-card-featured reveal">
+                <div class="project-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/konyo-8st-1.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/konyo-8st-2.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/konyo-8st-3.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/konyo-8st-4.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/konyo-8st-5.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/konyo-8st-6.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
+                </div>
+                <div class="project-info-featured">
+                    <div class="project-meta-top">
+                        <span class="project-category-tag"><i class="fas fa-building"></i> Commercial Development</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Konyo Konyo, Juba</span>
+                    </div>
+                    <h3>Eight-Storey Commercial Building</h3>
+                    <p>Large-scale commercial and office development supporting business operations in Juba's commercial heart.</p>
+                    <div class="project-footer">
+                        <div class="project-specs">
+                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                            <div class="project-spec"><i class="fas fa-layer-group"></i> 8 Floors</div>
+                        </div>
+                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Nyakuron -->
+            <div class="project-card-featured reveal">
+                <div class="project-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/nyakuron-2.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-3.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-4.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-5.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-6.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-7.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-8.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-9.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/nyakuron-10.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">9</span></div>
+                </div>
+                <div class="project-info-featured">
+                    <div class="project-meta-top">
+                        <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Nyakuron 1st Class, Juba</span>
+                    </div>
+                    <h3>Three-Storey Residential Building</h3>
+                    <p>Prestigious residential development in one of Juba's premium neighbourhoods with luxury finishes.</p>
+                    <div class="project-footer">
+                        <div class="project-specs">
+                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                            <div class="project-spec"><i class="fas fa-star"></i> Premium</div>
+                        </div>
+                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6: Hai Cinema -->
+            <div class="project-card-featured reveal">
+                <div class="project-slider" data-autoplay="4000">
+                    <div class="slider-track">
+                        <div class="slider-slide"><img src="assets/hai-cinema-1.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-2.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-3.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-4.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-5.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-6.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-7.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-8.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-9.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                        <div class="slider-slide"><img src="assets/hai-cinema-10.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
+                    </div>
+                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-counter"><span class="current">1</span> / <span class="total">10</span></div>
+                </div>
+                <div class="project-info-featured">
+                    <div class="project-meta-top">
+                        <span class="project-category-tag"><i class="fas fa-building"></i> Residential Development</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Hai Cinema, Juba</span>
+                    </div>
+                    <h3>Six-Storey Apartment Building</h3>
+                    <p>Contemporary six-storey apartment complex designed for modern urban living with energy-efficient design.</p>
+                    <div class="project-footer">
+                        <div class="project-specs">
+                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
+                            <div class="project-spec"><i class="fas fa-layer-group"></i> 6 Floors</div>
+                        </div>
+                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="client-cta reveal" style="margin-top:40px;">
+            <a href="projects.html" class="btn-clients-action"><i class="fas fa-arrow-right"></i> View All Projects</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Geographic Reach -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-globe-africa"></i> Coverage</span>
+                <h2 class="section-title">Trusted Across East Africa</h2>
+            </div>
+            <div class="regions-grid reveal">
+                <div class="region-card"><div class="flag">🇸🇸</div><h5>South Sudan</h5></div>
+                <div class="region-card"><div class="flag">🇪🇹</div><h5>Ethiopia</h5></div>
+                <div class="region-card"><div class="flag">🇰🇪</div><h5>Kenya</h5></div>
+                <div class="region-card"><div class="flag">🇺🇬</div><h5>Uganda</h5></div>
+                <div class="region-card"><div class="flag">🇸🇱</div><h5>Sierra Leone</h5></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Approach -->
+    <section style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-handshake"></i> Collaboration</span>
+                <h2 class="section-title">Building Lasting Partnerships</h2>
+            </div>
+            <p class="reveal" style="font-size: 17px; color: var(--gray-600); line-height: 1.8;">
+                At UECC, we believe every successful project starts with a strong partnership. We work closely with our clients to understand their goals, provide innovative solutions, and deliver results that create long-term value.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Become Our Next Success Story</h2>
+                <p>Whether you're a financial institution, government agency, NGO, developer, or private business, UECC is ready to deliver reliable engineering and construction solutions tailored to your needs.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white"><i class="fas fa-file-alt"></i> Request a Proposal</a>
+                    <a href="contact.html" class="btn-outline-white"><i class="fas fa-calendar-check"></i> Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img"></a>
+                    <p>UECC is a leading East African engineering, construction, and consultancy firm established in 2011, delivering innovative and sustainable solutions across South Sudan, Ethiopia, Kenya, Uganda, and soon Sierra Leone.</p>
+                    <div class="contact-social" style="margin-top:22px;">
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/211925618075"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="whyus.html">Why Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Key Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html">Bank Fit‑Out</a></li>
+                        <li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Structural Engineering</a></li>
+                        <li><a href="services.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                  <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nimra Talata, opposite Ministry of Mining, Juba</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@uniqueengineerscoltd.com">info@uniqueengineerscoltd.com</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-globe-africa"></i><span>SSD · ETH · KEN · UGA · SLE</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Unique Engineering & Consultancy Co. Ltd (UECC). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float"><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>

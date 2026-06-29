@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Unique Engineering & Consultancy Co. Ltd</title>
+    <meta name="description" content="Learn about UECC's history, mission, values, leadership, and regional expertise. A leading engineering firm in East Africa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for new sections */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 2;
+        }
+        .stat-box {
+            background: white;
+            padding: 28px 16px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform var(--transition);
+        }
+        .stat-box:hover { transform: translateY(-6px); }
+        .stat-box .number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .stat-box .desc {
+            font-size: 13px;
+            color: var(--gray-600);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .value-card {
+            background: var(--gray-50);
+            padding: 32px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-100);
+            transition: all var(--transition);
+            text-align: center;
+        }
+        .value-card:hover {
+            background: white;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+        .value-card .icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            font-size: 22px;
+        }
+        .value-card h4 { color: var(--navy); margin-bottom: 10px; }
+
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+        .region-card {
+            text-align: center;
+            background: var(--gray-50);
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        .region-card:hover { background: var(--primary); color: white; }
+        .region-card .flag {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+        .region-card h5 { font-size: 16px; }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .industry-item {
+            background: var(--gray-50);
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .industry-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .industry-item i { font-size: 24px; margin-bottom: 10px; display: block; }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            list-style: none;
+        }
+        .certifications-grid li {
+            background: var(--gray-50);
+            padding: 18px 20px;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--primary);
+            font-weight: 500;
+        }
+
+        .ceo-message {
+            background: var(--gray-50);
+            padding: 100px 0;
+        }
+        .ceo-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .ceo-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        .ceo-text blockquote {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--gray-700);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .ceo-text h4 { color: var(--navy); margin-bottom: 4px; }
+        .ceo-text span { color: var(--primary); font-weight: 600; }
+
+        /* Director icon styling */
+.director-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 8px 20px rgba(30,58,138,0.2);
+}
+
+/* Team roles full width row inside team-grid */
+.team-roles {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 10px;
+}
+
+        @media (max-width: 992px) {
+            .stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .values-grid { grid-template-columns: 1fr 1fr; }
+            .industries-grid { grid-template-columns: 1fr 1fr; }
+            .ceo-grid { grid-template-columns: 1fr; text-align: center; }
+            .ceo-img { margin: 0 auto; }
+        }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .industries-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-contact">
+                <a href="tel:+211925618075" class="nav-phone"><i class="fas fa-phone"></i><span>+211 925 618 075</span></a>
+                <a href="https://wa.me/211925618075" class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span>+211 925 618 075</span></a>
+                <a href="contact.html" class="btn-quote">Get Quote</a>
+            </div>
+            <button class="mobile-toggle" onclick="openMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <!-- Mobile Menu same as before -->
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="whyus.html" onclick="closeMobileMenu()">Why Us</a></li>
+            <li><a href="projects.html" onclick="closeMobileMenu()">Projects</a></li>
+            <li><a href="clients.html" onclick="closeMobileMenu()">Clients</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="tel:+211925618075"><i class="fas fa-phone"></i> +211 925 618 075</a></li>
+            <li><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i> +211 925 618 075</a></li>
+        </ul>
+        <a href="contact.html" class="btn-quote" style="display:block;text-align:center;margin-top:16px;" onclick="closeMobileMenu()">Get a Free Quote</a>
+    </div>
+
+    <!-- ===== 1. Hero Section (with half background image) ===== -->
+    <section class="about-hero">
+        <div class="about-hero-grid">
+            <div class="about-hero-content reveal">
+                <h1>About Unique Engineering & Consultancy Co. Ltd</h1>
+                <p>Building excellence across East Africa since 2011. Headquartered in Juba, South Sudan, with a growing presence in Ethiopia, Kenya, Uganda, and soon Sierra Leone.</p>
+                <a href="assets/company-profile.pdf" download class="btn-download-profile"><i class="fas fa-file-pdf"></i> Download Company Profile</a>
+            </div>
+            <div class="about-hero-image reveal reveal-delay-2">
+                <img src="assets/aunique.jpg" alt="UECC Team">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 2. Company Statistics ===== -->
+    <section class="container" style="margin-top:-60px;">
+        <div class="stats-grid reveal">
+            <div class="stat-box"><div class="number counter" data-target="15">0</div><div class="desc">Years Experience</div></div>
+            <div class="stat-box"><div class="number counter" data-target="50">0</div><div class="desc">Projects Completed</div></div>
+            <div class="stat-box"><div class="number counter" data-target="20">0</div><div class="desc">Corporate Clients</div></div>
+            <div class="stat-box"><div class="number">5</div><div class="desc">Countries Served</div></div>
+            <div class="stat-box"><div class="number counter" data-target="20">0</div><div class="desc">Skilled Workforce</div></div>
+            <div class="stat-box"><div class="number">98%</div><div class="desc">Client Satisfaction</div></div>
+        </div>
+    </section>
+
+    <!-- ===== 3. Company History ===== -->
+<section class="history-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><i class="fas fa-history"></i> Our Journey</span>
+            <h2 class="section-title">Company History</h2>
+        </div>
+        <div class="history-grid reveal">
+            <div class="history-text">
+                <p>Unique Engineering & Consultancy Co. Ltd. was founded in 2011 and is headquartered in Juba, South Sudan. Over the past 15+ years we have grown into a trusted engineering and construction group delivering high‑quality projects across East Africa. Our sister company <strong>Unique Construction General Contractor (UCGC)</strong>, registered in 2020 in Ethiopia, extends our reach and capabilities in the region.</p>
+                <p>We operate successfully in South Sudan, Ethiopia, Uganda, and Kenya, and are expanding to Western Africa very soon. Our combined teams include experienced engineers, consultants, project managers, and construction professionals committed to turning ideas into practical, sustainable, and innovative solutions.</p>
+                <p>From concept development and architectural planning to construction supervision and project execution, we provide comprehensive engineering services that meet international standards while addressing local needs. Our core strengths include professional engineers, quality assurance, on‑time delivery, and client satisfaction.</p>
+            </div>
+            <div class="history-image reveal reveal-delay-2">
+                <img src="assets/aunique.jpg" alt="UECC History" style="width:100%; border-radius:var(--radius-xl); box-shadow:var(--shadow-xl);">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== 4. Mission & Vision ===== -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card reveal reveal-delay-1">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver sustainable, high‑quality engineering and construction services that exceed client expectations, create value for stakeholders, and contribute to the development of Africa’s infrastructure.</p>
+                </div>
+                <div class="mv-card reveal reveal-delay-2">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted and innovative engineering firm in East and West Africa, known for integrity, technical excellence, and transformative projects that shape communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. Core Values ===== -->
+    <section class="core-values" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-gem"></i> Our Principles</span>
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">These values guide every project and relationship.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal reveal-delay-1">
+                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Integrity</h4>
+                    <p>We conduct business with honesty, transparency, and professionalism.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-2">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h4>Excellence</h4>
+                    <p>We strive for the highest standards in every project we undertake.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-3">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Innovation</h4>
+                    <p>We embrace modern technologies and creative solutions.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-4">
+                    <div class="icon"><i class="fas fa-hard-hat"></i></div>
+                    <h4>Safety</h4>
+                    <p>The safety of our employees, clients, and communities is always our priority.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-1">
+                    <div class="icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Sustainability</h4>
+                    <p>We build solutions that support long-term environmental and economic growth.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-2">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Client Commitment</h4>
+                    <p>We focus on understanding client needs and exceeding expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. Regional Presence ===== -->
+    <section class="regions" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-globe-africa"></i> Our Footprint</span>
+                <h2 class="section-title">Where We Operate</h2>
+            </div>
+            <div class="regions-grid reveal">
+                <div class="region-card"><div class="flag">🇸🇸</div><h5>South Sudan</h5><small>Head Office</small></div>
+                <div class="region-card"><div class="flag">🇪🇹</div><h5>Ethiopia</h5></div>
+                <div class="region-card"><div class="flag">🇰🇪</div><h5>Kenya</h5></div>
+                <div class="region-card"><div class="flag">🇺🇬</div><h5>Uganda</h5></div>
+                <div class="region-card"><div class="flag">🇱🇸</div><h5>Sierra Leone</h5></div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. Industries We Serve ===== -->
+    <section class="industries" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-industry"></i> Expertise</span>
+                <h2 class="section-title">Industries We Serve</h2>
+            </div>
+            <div class="industries-grid reveal">
+                <div class="industry-item"><i class="fas fa-university"></i> Banking & Financial</div>
+                <div class="industry-item"><i class="fas fa-building"></i> Commercial Buildings</div>
+                <div class="industry-item"><i class="fas fa-hard-hat"></i> Construction & Infrastructure</div>
+                <div class="industry-item"><i class="fas fa-road"></i> Roads & Transport</div>
+                <div class="industry-item"><i class="fas fa-bolt"></i> Energy & Utilities</div>
+                <div class="industry-item"><i class="fas fa-tint"></i> Water & Sanitation</div>
+                <div class="industry-item"><i class="fas fa-hospital"></i> Healthcare</div>
+                <div class="industry-item"><i class="fas fa-graduation-cap"></i> Education</div>
+                <div class="industry-item"><i class="fas fa-warehouse"></i> Industrial Facilities</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 8. Leadership & Team ===== -->
+<section class="team-section" style="padding: 100px 0;">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><i class="fas fa-users"></i> Leadership</span>
+            <h2 class="section-title">Meet Our Directors &amp; Key Team</h2>
+        </div>
+
+        <div class="team-grid">
+            <!-- Director 1 (Abel – Project Management Specialist) -->
+            <div class="team-member-card reveal reveal-delay-1">
+                <div class="director-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Mr. Abel Girma</h3>
+                <div class="role">Director</div>
+                <p>Project management specialist with extensive experience leading complex construction projects. Abel drives UECC’s strategic growth, operational excellence, and the delivery of large‑scale commercial, residential, and banking projects across East Africa.</p>
+            </div>
+
+            <!-- Director 2 (Ephrem) -->
+            <div class="team-member-card reveal reveal-delay-1">
+                <div class="director-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Mr. Ephrem Jemal</h3>
+                <div class="role">Director</div>
+                <p>Brings deep expertise in construction management and business development. Ephrem oversees key client relationships, project execution, and the expansion of UECC’s regional footprint, including our sister company UCGC in Ethiopia.</p>
+            </div>
+
+            <!-- Key Team Member 3 – Mr. Biruk F Mariam (Partner) -->
+            <div class="team-member-card reveal reveal-delay-2">
+                <div class="director-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>Mr. Biruk F Mariam</h3>
+                <div class="role">Partner – Architectural Engineering</div>
+                <p>Creative architectural engineer blending functionality with aesthetics for modern, contextual designs. Biruk leads the architectural vision across UECC’s projects.</p>
+            </div>
+
+            <!-- Key Team Member 4 – Mr. Kebede Sebsibie (Marketing Manager) -->
+            <div class="team-member-card reveal reveal-delay-2">
+                <div class="director-icon"><i class="fas fa-bullhorn"></i></div>
+                <h3>Mr. Kebede Sebsibie</h3>
+                <div class="role">Marketing Manager</div>
+                <p>Drives brand strategy, client acquisition, and market positioning. Kebede ensures UECC’s services reach the right clients across East Africa.</p>
+            </div>
+
+            <!-- Key Team Member 5 – Mr. Sirak Asefaw (Finance) -->
+            <div class="team-member-card reveal reveal-delay-2">
+                <div class="director-icon"><i class="fas fa-coins"></i></div>
+                <h3>Mr. Sirak Asefaw</h3>
+                <div class="role">Finance</div>
+                <p>Oversees financial planning, budgeting, and cost control, guaranteeing every project stays financially sound and transparent.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- ===== 9. Work Process ===== -->
+    <section class="process" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-tasks"></i> How We Work</span>
+                <h2 class="section-title">Our Process</h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal reveal-delay-1"><div class="process-number">01</div><h4>Consultation</h4></div>
+                <div class="process-step reveal reveal-delay-2"><div class="process-number">02</div><h4>Planning & Design</h4></div>
+                <div class="process-step reveal reveal-delay-3"><div class="process-number">03</div><h4>Engineering Analysis</h4></div>
+                <div class="process-step reveal reveal-delay-4"><div class="process-number">04</div><h4>Construction</h4></div>
+                <div class="process-step reveal reveal-delay-4"><div class="process-number">05</div><h4>Quality Assurance</h4></div>
+                <div class="process-step reveal reveal-delay-4"><div class="process-number">06</div><h4>Project Handover</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 10. Certifications & Compliance ===== -->
+    <section class="certifications" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-certificate"></i> Standards</span>
+                <h2 class="section-title">Certifications & Compliance</h2>
+            </div>
+            <ul class="certifications-grid reveal">
+                <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> International Engineering Standards</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Quality Assurance Procedures</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Health & Safety Compliance</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Environmental Management Practices</li>
+                <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 8px;"></i> Professional Engineering Ethics</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== 11. Key Clients Preview ===== -->
+    <section class="clients" style="padding: 80px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-handshake"></i> Trusted By</span>
+                <h2 class="section-title">Key Clients</h2>
+            </div>
+            <div class="clients-grid">
+                <div class="client-card reveal reveal-delay-1"><div class="client-logo"><i class="fas fa-building"></i></div><h4>Eco Bank</h4></div>
+                <div class="client-card reveal reveal-delay-2"><div class="client-logo"><i class="fas fa-university"></i></div><h4>Equity Bank</h4></div>
+                <div class="client-card reveal reveal-delay-3"><div class="client-logo"><i class="fas fa-landmark"></i></div><h4>KCB Bank</h4></div>
+                <div class="client-card reveal reveal-delay-4"><div class="client-logo"><i class="fas fa-hard-hat"></i></div><h4>AECOM</h4></div>
+            </div>
+            <div class="client-cta reveal">
+                <a href="clients.html" class="btn-clients-action"><i class="fas fa-arrow-right"></i> View All Clients</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 12. Achievements & Milestones ===== -->
+    <section class="achievements" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-trophy"></i> Milestones</span>
+                <h2 class="section-title">Our Achievements</h2>
+            </div>
+            <div class="timeline" style="max-width: 700px; margin: 0 auto;">
+                <div class="timeline-item reveal" style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <div style="background: var(--primary); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2011</div>
+                    <div><h4>Founded in Juba</h4><p>Unique Engineering & Consultancy Co. Ltd established.</p></div>
+                </div>
+                <div class="timeline-item reveal" style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <div style="background: var(--primary); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2020</div>
+                    <div><h4>Expanded to Ethiopia</h4><p>Opened UCGC office in Addis Ababa.</p></div>
+                </div>
+                <div class="timeline-item reveal" style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <div style="background: var(--primary); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2023</div>
+                    <div><h4>50+ Projects Completed</h4><p>Major milestones in banking and infrastructure.</p></div>
+                </div>
+                <div class="timeline-item reveal" style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <div style="background: var(--primary); color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2024</div>
+                    <div><h4>Regional Expansion</h4><p>Growing presence in Kenya, Uganda, and soon Sierra Leone.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 14. Final CTA ===== -->
+    <section class="cta-about">
+        <div class="container reveal">
+            <h2>Ready to Build the Future Together?</h2>
+            <p>Whether you need engineering consultancy, architectural design, project management, or large-scale construction services, UECC has the expertise to deliver successful outcomes.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="contact.html" class="btn-white"><i class="fas fa-file-alt"></i> Request a Proposal</a>
+                <a href="contact.html" class="btn-outline-white"><i class="fas fa-calendar-check"></i> Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img"></a>
+                    <p>UECC is a leading East African engineering, construction, and consultancy firm established in 2011, delivering innovative and sustainable solutions across South Sudan, Ethiopia, Kenya, Uganda, and soon Sierra Leone.</p>
+                    <div class="contact-social" style="margin-top:22px;">
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/211925618075"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="whyus.html">Why Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Key Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html">Bank Fit‑Out</a></li>
+                        <li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Structural Engineering</a></li>
+                        <li><a href="services.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                  <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nimra Talata, opposite Ministry of Mining, Juba</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@uniqueengineerscoltd.com">info@uniqueengineerscoltd.com</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-globe-africa"></i><span>SSD · ETH · KEN · UGA · SLE</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Unique Engineering & Consultancy Co. Ltd (UECC). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float"><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>

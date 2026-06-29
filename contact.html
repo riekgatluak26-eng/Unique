@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Unique Engineering & Consultancy Co. Ltd</title>
+    <meta name="description" content="Get in touch with UECC in Juba, South Sudan. Call, WhatsApp, or email us for engineering, construction, and consultancy services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific hero and office location styles */
+        .contact-page-hero {
+            position: relative;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            background: url('assets/unique10.jpeg') center/cover no-repeat;
+            color: white;
+            margin-top: 80px;
+        }
+        .contact-page-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(11,20,36,0.92) 0%, rgba(30,58,138,0.75) 100%);
+        }
+        .contact-page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        .contact-page-hero h1 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .contact-page-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        .office-location {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .office-location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .location-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+        .location-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .location-text h2 {
+            font-size: 34px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        .location-text p {
+            color: var(--gray-600);
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+        .location-text .address-highlight {
+            background: var(--gray-50);
+            padding: 24px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+        }
+        .address-highlight i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .office-location-grid {
+                grid-template-columns: 1fr;
+            }
+            .location-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/uniquelogo.jpeg" alt="Unique Engineering & Consultancy Co. Ltd" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="whyus.html">Why Us</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-contact">
+                <a href="tel:+211925618075" class="nav-phone"><i class="fas fa-phone"></i><span>+211 925 618 075</span></a>
+                <a href="https://wa.me/211925618075" class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span>+211 925 618 075</span></a>
+                <a href="contact.html" class="btn-quote">Get Quote</a>
+            </div>
+            <button class="mobile-toggle" onclick="openMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="services.html" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="whyus.html" onclick="closeMobileMenu()">Why Us</a></li>
+            <li><a href="projects.html" onclick="closeMobileMenu()">Projects</a></li>
+            <li><a href="clients.html" onclick="closeMobileMenu()">Clients</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="tel:+211925618075"><i class="fas fa-phone"></i> +211 925 618 075</a></li>
+            <li><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i> +211 925 618 075</a></li>
+        </ul>
+        <a href="contact.html" class="btn-quote" style="display:block;text-align:center;margin-top:16px;" onclick="closeMobileMenu()">Get a Free Quote</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="contact-page-hero">
+        <div class="contact-page-hero-overlay"></div>
+        <div class="contact-page-hero-content">
+            <h1>Let's Build Something Great Together</h1>
+            <p>Our team is ready to discuss your project. Reach out by phone, WhatsApp, or visit our head office in Juba.</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="tel:+211925618075" class="btn-primary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/211925618075" target="_blank" class="btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form and Info (Reused from existing .contact styles) -->
+    <section class="contact" style="padding-top: 80px;">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left: Contact Details Card -->
+                <div class="contact-info reveal">
+                    <h3>Contact Details</h3>
+                    <p>We are here to help. Reach out through any of the channels below.</p>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-item-text">
+                            <h5>Head Office</h5>
+                            <p>Nimra Talata, opposite Ministry of Mining, Juba, South Sudan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-item-text">
+                            <h5>South Sudan</h5>
+                            <a href="tel:+211925618075">+211 925 618 075</a>
+                            
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-item-text">
+                            <h5>WhatsApp</h5>
+                            <a href="https://wa.me/211925618075" target="_blank">+211 925 618 075</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-item-text">
+                            <h5>Email</h5>
+                            <a href="mailto:info@uniqueengineerscoltd.com">info@uniqueengineerscoltd.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-globe-africa"></i></div>
+                        <div class="contact-item-text">
+                            <h5>Regional Offices</h5>
+                            <p>Ethiopia: +251 920 162 793</p>
+                            <p>Uganda: +256 780 637 060</p>
+                            <p>Kenya: +254 712 349 237</p>
+                            <p>Sierra Leone: +232 78 456 768</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/211925618075"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal reveal-delay-2">
+    <h3>Send Us a Message</h3>
+
+<form id="contactForm" name="contact" method="POST" data-netlify="true">
+
+    <input type="hidden" name="form-name" value="contact">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="john@example.com" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+211 xxx xxx xxx" required>
+        </div>
+
+        <div class="form-group">
+            <label>Service Needed</label>
+            <select name="service" required>
+                <option value="">Select a service</option>
+                <option>Engineering Consultancy</option>
+                <option>Architectural & Interior Design</option>
+                <option>Construction Management</option>
+                <option>Structural & Civil Engineering</option>
+                <option>Project Supervision</option>
+                <option>Quantity Surveying</option>
+                <option>Bank Fit-Out</option>
+                <option>Building Construction</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">
+        <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+
+</form>
+
+<div id="successPopup" class="success-popup">
+    <i class="fas fa-check-circle"></i>
+    <h4>Thank You!</h4>
+    <p>Your message has been sent successfully.</p>
+</div>
+
+<!-- Hidden Netlify Form -->
+<form name="contact" netlify hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <input type="text" name="service">
+    <textarea name="message"></textarea>
+</form>
+
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Office Location / Map Section -->
+<section class="office-location">
+    <div class="container">
+        <div class="office-location-grid">
+
+            <!-- Google Map -->
+            <div class="location-image reveal">
+                <iframe
+                    src="https://maps.google.com/maps?q=Ministry%20of%20Mining%20Juba%20South%20Sudan&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Office Information -->
+            <div class="location-text reveal reveal-delay-2">
+                <span class="section-tag">Our Location</span>
+
+                <h2>Visit Our Head Office</h2>
+
+                <p>
+                    Unique Engineering & Construction Company (UECC) is strategically
+                    located in Juba, South Sudan, enabling us to efficiently serve
+                    government institutions, NGOs, private organizations, and
+                    commercial clients across South Sudan and the East African region.
+                </p>
+
+                <div class="address-highlight">
+
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>
+                            <strong>Head Office Address</strong><br>
+                            Nimra Talata, Opposite Ministry of Mining<br>
+                            Juba, South Sudan
+                        </span>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-location-arrow"></i>
+                        <span>
+                            Easily accessible and centrally located near the
+                            Ministry of Mining.
+                        </span>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-clock"></i>
+                        <span>
+                            Monday – Saturday<br>
+                            8:00 AM – 5:00 PM
+                        </span>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>
+                            +211 925 618 075
+                        </span>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <span>
+                           info@uniqueengineerscoltd.com
+                        </span>
+                    </p>
+
+                </div>
+
+                <div class="location-buttons">
+                    <a href="https://maps.google.com/?q=Ministry+of+Mining+Juba+South+Sudan"
+                       target="_blank"
+                       class="btn btn-primary">
+                        <i class="fas fa-directions"></i>
+                        Get Directions
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Call to Action -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Start Your Next Project?</h2>
+                <p>Partner with Unique Engineering & Consultancy Co. Ltd and bring your vision to life with professional engineering, construction, and consultancy expertise.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-white"><i class="fas fa-paper-plane"></i> Get Quote</a>
+                    <a href="tel:+211925618075" class="btn-outline-white"><i class="fas fa-phone-alt"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img"></a>
+                    <p>UECC is a leading East African engineering, construction, and consultancy firm established in 2011, delivering innovative and sustainable solutions across South Sudan, Ethiopia, Kenya, Uganda, and soon Sierra Leone.</p>
+                    <div class="contact-social" style="margin-top:22px;">
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+</a>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/211925618075"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-link"
+   aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="whyus.html">Why Us</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Key Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html">Bank Fit‑Out</a></li>
+                        <li><a href="services.html">Construction Management</a></li>
+                        <li><a href="services.html">Structural Engineering</a></li>
+                        <li><a href="services.html">Civil Engineering</a></li>
+                    </ul>
+                </div>
+                  <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nimra Talata, opposite Ministry of Mining, Juba</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/211925618075">+211 925 618 075</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@uniqueengineerscoltd.com">info@uniqueengineerscoltd.com</a></div>
+                    <div class="footer-contact-item"><i class="fas fa-globe-africa"></i><span>SSD · ETH · KEN · UGA · SLE</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Unique Engineering & Consultancy Co. Ltd (UECC). All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float"><a href="https://wa.me/211925618075" target="_blank"><i class="fab fa-whatsapp"></i></a></div>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
