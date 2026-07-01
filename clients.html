@@ -58,31 +58,28 @@
             display: block;
         }
 
-        /* Static logo grid */
-.logo-grid-container {
-    width: 100%;
-}
-
-.logo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;          /* spacing between logos, adjust as needed */
-    padding: 20px 0;
-}
-
-.logo-grid img {
-    height: 70px;       /* uniform height; width auto */
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.logo-grid img:hover {
-    filter: grayscale(0%);
-}
+        /* Static logo grid — ORIGINAL COLORS, NO GRAYSCALE */
+        .logo-grid-container {
+            width: 100%;
+        }
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 20px 0;
+        }
+        .logo-grid img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            /* filter removed — logos appear in their original colors */
+            transition: transform 0.3s ease;
+        }
+        .logo-grid img:hover {
+            transform: scale(1.05);
+        }
 
         /* Rest of the page styles unchanged */
         .client-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 40px; }
@@ -93,14 +90,6 @@
 
         .why-choose-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; list-style: none; max-width: 900px; margin: 0 auto; }
         .why-choose-list li { background: white; padding: 14px 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--primary); font-weight: 500; box-shadow: var(--shadow-xs); }
-
-        .featured-client-projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .featured-client-project-card { background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform var(--transition); }
-        .featured-client-project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-        .featured-client-project-card img { width: 100%; height: 200px; object-fit: cover; }
-        .featured-client-project-card .info { padding: 18px; }
-        .featured-client-project-card h5 { font-size: 16px; color: var(--navy); }
-        .featured-client-project-card p { font-size: 13px; color: var(--gray-600); margin-top: 6px; }
 
         .testimonial-static-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
         .testimonial-static-card { background: white; padding: 32px 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100); text-align: center; }
@@ -118,12 +107,10 @@
             .clients-hero-image img { height: 300px; }
             .client-stats-grid { grid-template-columns: repeat(3, 1fr); }
             .why-choose-list { grid-template-columns: 1fr; }
-            .featured-client-projects-grid { grid-template-columns: repeat(2, 1fr); }
             .testimonial-static-cards { grid-template-columns: 1fr; }
         }
         @media (max-width: 600px) {
             .client-stats-grid { grid-template-columns: 1fr 1fr; }
-            .featured-client-projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -171,7 +158,7 @@
         <a href="contact.html" class="btn-quote" style="display:block;text-align:center;margin-top:16px;" onclick="closeMobileMenu()">Get a Free Quote</a>
     </div>
 
-    <!-- NEW Split Hero Section -->
+    <!-- Hero Section -->
     <section class="clients-hero">
         <div class="clients-hero-grid">
             <div class="clients-hero-text">
@@ -183,7 +170,6 @@
                 </div>
             </div>
             <div class="clients-hero-image">
-                <!-- Replace with a real client collaboration image if available -->
                 <img src="assets/addis-house3.jpeg" alt="UECC client meeting">
             </div>
         </div>
@@ -220,34 +206,35 @@
             </div>
         </div>
     </section>
-<!-- Static Client Logo Grid (replaces previous infinite scroll) -->
-<section class="client-logos" style="padding: 100px 0; background: var(--gray-50);">
-    <div class="container">
-        <div class="section-header reveal">
-            <span class="section-badge"><i class="fas fa-handshake"></i> Trusted Partners</span>
-            <h2 class="section-title">Our Valued Clients</h2>
-        </div>
-        <div class="logo-grid-container">
-            <div class="logo-grid">
-                <img src="assets/logo11.png" alt="Eco Bank">
-                <img src="assets/logo12.png" alt="Equity Bank">
-                <img src="assets/logo13.png" alt="ICAP">
-                <img src="assets/logo14.png" alt="AECOM">
-                <img src="assets/logo15.png" alt="Wisdom Investment">
-                <img src="assets/logo1.jpg" alt="Wisdom Investment">
-                <img src="assets/logo2.jpg" alt="Wisdom Investment">
-                <img src="assets/logo3.jpg" alt="West Yat">
-                <img src="assets/logo4.jpg" alt="West Yat">
-                <img src="assets/logo5.png" alt="West Yat">
-                <img src="assets/logo6.png" alt="West Yat">
-                <img src="assets/logo7.png" alt="West Yat">
-                <img src="assets/logo8.png" alt="West Yat">
-                <img src="assets/logo9.png" alt="West Yat">
-                <img src="assets/logo10.png" alt="West Yat">
+
+    <!-- Client Logo Grid — Original Colors -->
+    <section class="client-logos" style="padding: 100px 0; background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge"><i class="fas fa-handshake"></i> Trusted Partners</span>
+                <h2 class="section-title">Our Valued Clients</h2>
+            </div>
+            <div class="logo-grid-container">
+                <div class="logo-grid">
+                    <img src="assets/logo11.png" alt="Eco Bank">
+                    <img src="assets/logo12.png" alt="Equity Bank">
+                    <img src="assets/logo13.png" alt="ICAP">
+                    <img src="assets/logo14.png" alt="AECOM">
+                    <img src="assets/logo15.png" alt="Wisdom Investment">
+                    <img src="assets/logo1.jpg" alt="Client Logo">
+                    <img src="assets/logo2.jpg" alt="Client Logo">
+                    <img src="assets/logo3.jpg" alt="West Yat">
+                    <img src="assets/logo4.jpg" alt="Client Logo">
+                    <img src="assets/logo5.png" alt="Client Logo">
+                    <img src="assets/logo6.png" alt="Client Logo">
+                    <img src="assets/logo7.png" alt="Client Logo">
+                    <img src="assets/logo8.png" alt="Client Logo">
+                    <img src="assets/logo9.png" alt="Client Logo">
+                    <img src="assets/logo10.png" alt="Client Logo">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Industries We Serve -->
     <section class="industries" style="padding: 100px 0;">
@@ -329,219 +316,6 @@
         </div>
     </section>
 
-    <!-- Featured Client Projects (matching projects.html design) -->
-<section class="featured-projects" style="padding: 100px 0; background: var(--gray-50);">
-    <div class="container">
-        <div class="section-header reveal">
-            <span class="section-badge"><i class="fas fa-briefcase"></i> Collaborations</span>
-            <h2 class="section-title">Featured Client Projects</h2>
-            <p class="section-subtitle">A glimpse of our successful partnerships with leading organisations.</p>
-        </div>
-
-        <div class="projects-grid-featured">
-            <!-- Project 1: NBE -->
-            <div class="project-card-featured reveal">
-                <div class="project-slider" data-autoplay="4000">
-                    <div class="slider-track">
-                        <div class="slider-slide"><img src="assets/abel1.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/abel2.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/abel3.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/abel4.jpeg" alt="NBE Branch" loading="lazy" decoding="async" width="800" height="600"></div>
-                    </div>
-                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="slider-counter"><span class="current">1</span> / <span class="total">4</span></div>
-                </div>
-                <div class="project-info-featured">
-                    <div class="project-meta-top">
-                        <span class="project-category-tag"><i class="fas fa-university"></i> Banking & Commercial</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Juba, South Sudan</span>
-                    </div>
-                    <h3>National Bank of Egypt (NBE) Headquarters Branch</h3>
-                    <p>Complete construction and specialised banking fit-out delivered to international standards.</p>
-                    <div class="project-footer">
-                        <div class="project-specs">
-                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
-                            <div class="project-spec"><i class="fas fa-layer-group"></i> 5 Floor</div>
-                        </div>
-                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: Munuki -->
-            <div class="project-card-featured reveal">
-                <div class="project-slider" data-autoplay="4000">
-                    <div class="slider-track">
-                        <div class="slider-slide"><img src="assets/munuki-1.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/munuki-2.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/munuki-3.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/munuki-4.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/munuki-5.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/munuki-6.jpeg" alt="Munuki Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                    </div>
-                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
-                </div>
-                <div class="project-info-featured">
-                    <div class="project-meta-top">
-                        <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Munuki, Juba</span>
-                    </div>
-                    <h3>Three-Storey Residential Building</h3>
-                    <p>Modern three-storey residential development with high-quality finishes and durable construction.</p>
-                    <div class="project-footer">
-                        <div class="project-specs">
-                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
-                            <div class="project-spec"><i class="fas fa-layer-group"></i> 3 Floors</div>
-                        </div>
-                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3: Custom Market -->
-            <div class="project-card-featured reveal">
-                <div class="project-slider" data-autoplay="4000">
-                    <div class="slider-track">
-                        <div class="slider-slide"><img src="assets/custom-market-1.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/custom-market-2.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/custom-market-3.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/custom-market-4.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/custom-market-5.jpeg" alt="Shopping Complex" loading="lazy" decoding="async" width="800" height="600"></div>
-                    </div>
-                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="slider-counter"><span class="current">1</span> / <span class="total">5</span></div>
-                </div>
-                <div class="project-info-featured">
-                    <div class="project-meta-top">
-                        <span class="project-category-tag"><i class="fas fa-store"></i> Commercial Development</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Custom Market, Juba</span>
-                    </div>
-                    <h3>Four-Storey Shopping Complex</h3>
-                    <p>Retail spaces and business outlets designed for growing commercial activity with modern amenities.</p>
-                    <div class="project-footer">
-                        <div class="project-specs">
-                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
-                            <div class="project-spec"><i class="fas fa-layer-group"></i> 4 Floors</div>
-                        </div>
-                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Konyo Konyo 8-Storey -->
-            <div class="project-card-featured reveal">
-                <div class="project-slider" data-autoplay="4000">
-                    <div class="slider-track">
-                        <div class="slider-slide"><img src="assets/konyo-8st-1.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/konyo-8st-2.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/konyo-8st-3.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/konyo-8st-4.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/konyo-8st-5.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/konyo-8st-6.jpeg" alt="8-Storey Commercial" loading="lazy" decoding="async" width="800" height="600"></div>
-                    </div>
-                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="slider-counter"><span class="current">1</span> / <span class="total">6</span></div>
-                </div>
-                <div class="project-info-featured">
-                    <div class="project-meta-top">
-                        <span class="project-category-tag"><i class="fas fa-building"></i> Commercial Development</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Konyo Konyo, Juba</span>
-                    </div>
-                    <h3>Eight-Storey Commercial Building</h3>
-                    <p>Large-scale commercial and office development supporting business operations in Juba's commercial heart.</p>
-                    <div class="project-footer">
-                        <div class="project-specs">
-                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
-                            <div class="project-spec"><i class="fas fa-layer-group"></i> 8 Floors</div>
-                        </div>
-                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5: Nyakuron -->
-            <div class="project-card-featured reveal">
-                <div class="project-slider" data-autoplay="4000">
-                    <div class="slider-track">
-                        <div class="slider-slide"><img src="assets/nyakuron-2.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-3.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-4.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-5.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-6.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-7.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-8.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-9.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/nyakuron-10.jpeg" alt="Nyakuron Residential" loading="lazy" decoding="async" width="800" height="600"></div>
-                    </div>
-                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="slider-counter"><span class="current">1</span> / <span class="total">9</span></div>
-                </div>
-                <div class="project-info-featured">
-                    <div class="project-meta-top">
-                        <span class="project-category-tag"><i class="fas fa-home"></i> Residential Development</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Nyakuron 1st Class, Juba</span>
-                    </div>
-                    <h3>Three-Storey Residential Building</h3>
-                    <p>Prestigious residential development in one of Juba's premium neighbourhoods with luxury finishes.</p>
-                    <div class="project-footer">
-                        <div class="project-specs">
-                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
-                            <div class="project-spec"><i class="fas fa-star"></i> Premium</div>
-                        </div>
-                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 6: Hai Cinema -->
-            <div class="project-card-featured reveal">
-                <div class="project-slider" data-autoplay="4000">
-                    <div class="slider-track">
-                        <div class="slider-slide"><img src="assets/hai-cinema-1.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-2.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-3.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-4.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-5.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-6.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-7.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-8.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-9.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                        <div class="slider-slide"><img src="assets/hai-cinema-10.jpeg" alt="Hai Cinema Apartments" loading="lazy" decoding="async" width="800" height="600"></div>
-                    </div>
-                    <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-                    <div class="slider-counter"><span class="current">1</span> / <span class="total">10</span></div>
-                </div>
-                <div class="project-info-featured">
-                    <div class="project-meta-top">
-                        <span class="project-category-tag"><i class="fas fa-building"></i> Residential Development</span>
-                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Hai Cinema, Juba</span>
-                    </div>
-                    <h3>Six-Storey Apartment Building</h3>
-                    <p>Contemporary six-storey apartment complex designed for modern urban living with energy-efficient design.</p>
-                    <div class="project-footer">
-                        <div class="project-specs">
-                            <div class="project-spec"><i class="fas fa-check-circle"></i> Completed</div>
-                            <div class="project-spec"><i class="fas fa-layer-group"></i> 6 Floors</div>
-                        </div>
-                        <a href="projects.html" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="client-cta reveal" style="margin-top:40px;">
-            <a href="projects.html" class="btn-clients-action"><i class="fas fa-arrow-right"></i> View All Projects</a>
-        </div>
-    </div>
-</section>
-
     <!-- Geographic Reach -->
     <section style="padding: 100px 0;">
         <div class="container">
@@ -594,22 +368,12 @@
                     <a href="index.html" class="nav-logo"><img src="assets/uniquelogo.jpeg" alt="UECC Logo" class="logo-img"></a>
                     <p>UECC is a leading East African engineering, construction, and consultancy firm established in 2011, delivering innovative and sustainable solutions across South Sudan, Ethiopia, Kenya, Uganda, and soon Sierra Leone.</p>
                     <div class="contact-social" style="margin-top:22px;">
-                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="social-link"
-   aria-label="Facebook">
-    <i class="fab fa-facebook-f"></i>
-</a>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/211925618075"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="social-link"
-   aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
+                        <a href="https://www.facebook.com/p/Unique-Engineering-consultancy-Co-Ltd-100063910663407/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/211925618075" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -634,7 +398,7 @@
                         <li><a href="services.html">Civil Engineering</a></li>
                     </ul>
                 </div>
-                  <div class="footer-col">
+                <div class="footer-col">
                     <h4>Contact Info</h4>
                     <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Nimra Talata, opposite Ministry of Mining, Juba</span></div>
                     <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+211925618075">+211 925 618 075</a></div>
@@ -655,3 +419,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
